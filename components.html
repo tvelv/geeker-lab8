@@ -1,0 +1,164 @@
+<!doctype html><html lang="uk"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Клуб настільних ігор. Geeker - настільні ігри, зустрічі з друзями та ігрові події.">
+    <title>Клуб настільних ігор | Geeker</title>
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
+    <script src="js/main.js?v=cards-4" defer></script>
+  <link rel="stylesheet" href="css/tailwind.css?v=cards-4"><link rel="stylesheet" href="css/custom-styles.css?v=cards-4"></head>
+  <body class="bg-canvas font-body leading-relaxed text-ink"><header class="site-header border-b border-line bg-surface">
+      <div class="container header-inner mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] relative flex min-h-20 items-center justify-between gap-4 md:min-h-24 lg:gap-8">
+        <a class="brand inline-flex shrink-0 items-center transition-colors hover:text-heading" href="index.html" aria-label="Geeker - головна"><img src="assets/images/logo.png" width="88" height="80" alt="Geeker" class="h-20 w-[88px] object-contain md:h-[94px] md:w-[104px]"></a>
+        <nav class="desktop-nav hidden md:block" aria-label="Основна навігація">
+          <ul class="m-0 flex list-none flex-wrap gap-4 p-0 lg:gap-6">
+            <li><a href="catalog.html" class="transition-colors hover:text-heading block py-2 text-sm">Каталог ігор</a></li>
+            <li><a href="booking.html" class="transition-colors hover:text-heading block py-2 text-sm">Бронювання столів</a></li>
+            <li><a href="events.html" class="transition-colors hover:text-heading block py-2 text-sm">Турніри та івенти</a></li>
+          </ul>
+        </nav>
+        <div class="header-cta hidden xl:block"></div>
+        <details class="mobile-nav group ml-auto md:hidden">
+          <summary aria-label="Меню навігації" class="grid h-12 w-12 cursor-pointer list-none place-items-center rounded-lg border border-line text-heading hover:bg-raised">
+            <span class="hamburger relative block h-[18px] w-6" aria-hidden="true"><span class="absolute left-0 h-0.5 w-6 rounded bg-current transition duration-200 top-0"></span><span class="absolute left-0 h-0.5 w-6 rounded bg-current transition duration-200 top-2"></span><span class="absolute left-0 h-0.5 w-6 rounded bg-current transition duration-200 top-4"></span></span>
+          </summary>
+          <nav aria-label="Мобільна навігація" class="absolute inset-x-0 top-full z-30 rounded-lg border border-line bg-surface p-2 shadow-xl">
+            <ul class="m-0 list-none p-0">
+              <li><a href="index.html" aria-current="page" class="transition-colors hover:text-heading block min-h-12 rounded-lg px-3 py-3 hover:bg-raised">Головна</a></li>
+              <li><a href="catalog.html" class="transition-colors hover:text-heading block min-h-12 rounded-lg px-3 py-3 hover:bg-raised">Каталог ігор</a></li>
+              <li><a href="booking.html" class="transition-colors hover:text-heading block min-h-12 rounded-lg px-3 py-3 hover:bg-raised">Бронювання столів</a></li>
+              <li><a href="events.html" class="transition-colors hover:text-heading block min-h-12 rounded-lg px-3 py-3 hover:bg-raised">Турніри та івенти</a></li>
+              <li><a href="rental.html" class="transition-colors hover:text-heading block min-h-12 rounded-lg px-3 py-3 hover:bg-raised">Правила оренди</a></li>
+              <li><a href="contacts.html" class="transition-colors hover:text-heading block min-h-12 rounded-lg px-3 py-3 hover:bg-raised">Контакти та локація</a></li>
+            </ul>
+          </nav>
+        </details>
+      </div>
+      <div class="subnav hidden border-t border-line bg-canvas md:block">
+        <div class="container subnav-inner mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] flex min-h-10 items-center justify-between gap-4 text-xs text-muted">
+          <span>GEEKER / КЛУБ НАСТІЛЬНИХ ІГОР</span>
+          <nav aria-label="Додаткова навігація" class="flex gap-6">
+            <a href="rental.html" class="transition-colors hover:text-heading">Правила оренди</a><a href="contacts.html" class="transition-colors hover:text-heading">Контакти та локація</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main id="main" class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] py-12">
+ <h1 class="mb-4 font-heading text-3xl font-bold text-heading">UI-компоненти Geeker</h1>
+ <p class="mb-10 text-muted">Окрема навчальна сторінка компонентів лабораторної роботи №6.</p>
+ <section aria-labelledby="button-title" class="mb-12"><h2 id="button-title" class="mb-6 text-2xl font-bold text-heading">Button та стани взаємодії</h2>
+ <div class="flex flex-col flex-wrap gap-4 sm:flex-row"><a class="button button--primary inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border px-5 py-3 text-center font-medium leading-snug text-heading transition duration-200 hover:-translate-y-0.5 active:translate-y-px active:scale-[.98] disabled:pointer-events-none disabled:opacity-40 border-transparent bg-primary hover:border-violet-300 hover:bg-violet-500 hover:shadow-lg active:bg-violet-900 transition-colors hover:text-heading w-full sm:w-auto" href="booking.html">Забронювати стіл</a><button type="button" disabled class="button button--primary inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border px-5 py-3 text-center font-medium leading-snug text-heading transition duration-200 hover:-translate-y-0.5 active:translate-y-px active:scale-[.98] disabled:pointer-events-none disabled:opacity-40 border-transparent bg-primary hover:border-violet-300 hover:bg-violet-500 hover:shadow-lg active:bg-violet-900 transition-colors hover:text-heading w-full sm:w-auto">Недоступно</button>
+ <button type="button" class="button button--primary inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border px-5 py-3 text-center font-medium leading-snug text-heading transition duration-200 hover:-translate-y-0.5 active:translate-y-px active:scale-[.98] disabled:pointer-events-none disabled:opacity-40 border-transparent bg-primary hover:border-violet-300 hover:bg-violet-500 hover:shadow-lg active:bg-violet-900 transition-colors hover:text-heading w-full sm:w-auto">Демонстраційна кнопка</button></div>
+ <p class="mt-4 text-sm text-muted">Наведіть курсор, натисніть або перейдіть клавішею Tab. Disabled виключено з взаємодії.</p></section>
+ <section aria-labelledby="grid-title"><h2 id="grid-title" class="mb-6 text-2xl font-bold text-heading">Card і адаптивна Grid-сітка</h2>
+ <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"><article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/dixit.webp" alt="Коробка гри Dixit" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Компанія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="small text-sm text-muted mb-4">Асоціації та уява</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="component-0-home-game-details-dixit">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="mb-4">Придумуйте підказки до казкових ілюстрацій та відгадуйте, яку карту обрав оповідач.</p>
+      <p class="small text-sm text-muted mb-4">Тут важливі асоціації, фантазія та вміння відчути думки друзів. Пояснення коротке, а кожен новий оповідач змінює настрій партії.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="catalog.html">Обрати гру →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="component-0-home-game-details-dixit" aria-expanded="false" aria-label="Показати опис гри Dixit" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/dixit.webp" alt="Коробка гри Dixit" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Компанія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="small text-sm text-muted mb-4">Асоціації та уява</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="component-1-home-game-details-dixit">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="mb-4">Придумуйте підказки до казкових ілюстрацій та відгадуйте, яку карту обрав оповідач.</p>
+      <p class="small text-sm text-muted mb-4">Тут важливі асоціації, фантазія та вміння відчути думки друзів. Пояснення коротке, а кожен новий оповідач змінює настрій партії.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="catalog.html">Обрати гру →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="component-1-home-game-details-dixit" aria-expanded="false" aria-label="Показати опис гри Dixit" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/dixit.webp" alt="Коробка гри Dixit" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Компанія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="small text-sm text-muted mb-4">Асоціації та уява</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="component-2-home-game-details-dixit">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="mb-4">Придумуйте підказки до казкових ілюстрацій та відгадуйте, яку карту обрав оповідач.</p>
+      <p class="small text-sm text-muted mb-4">Тут важливі асоціації, фантазія та вміння відчути думки друзів. Пояснення коротке, а кожен новий оповідач змінює настрій партії.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="catalog.html">Обрати гру →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="component-2-home-game-details-dixit" aria-expanded="false" aria-label="Показати опис гри Dixit" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/dixit.webp" alt="Коробка гри Dixit" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Компанія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="small text-sm text-muted mb-4">Асоціації та уява</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="component-3-home-game-details-dixit">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="mb-4">Придумуйте підказки до казкових ілюстрацій та відгадуйте, яку карту обрав оповідач.</p>
+      <p class="small text-sm text-muted mb-4">Тут важливі асоціації, фантазія та вміння відчути думки друзів. Пояснення коротке, а кожен новий оповідач змінює настрій партії.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="catalog.html">Обрати гру →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="component-3-home-game-details-dixit" aria-expanded="false" aria-label="Показати опис гри Dixit" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/dixit.webp" alt="Коробка гри Dixit" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Компанія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="small text-sm text-muted mb-4">Асоціації та уява</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="component-4-home-game-details-dixit">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="mb-4">Придумуйте підказки до казкових ілюстрацій та відгадуйте, яку карту обрав оповідач.</p>
+      <p class="small text-sm text-muted mb-4">Тут важливі асоціації, фантазія та вміння відчути думки друзів. Пояснення коротке, а кожен новий оповідач змінює настрій партії.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="catalog.html">Обрати гру →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="component-4-home-game-details-dixit" aria-expanded="false" aria-label="Показати опис гри Dixit" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/dixit.webp" alt="Коробка гри Dixit" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Компанія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="small text-sm text-muted mb-4">Асоціації та уява</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="component-5-home-game-details-dixit">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="mb-4">Придумуйте підказки до казкових ілюстрацій та відгадуйте, яку карту обрав оповідач.</p>
+      <p class="small text-sm text-muted mb-4">Тут важливі асоціації, фантазія та вміння відчути думки друзів. Пояснення коротке, а кожен новий оповідач змінює настрій партії.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="catalog.html">Обрати гру →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="component-5-home-game-details-dixit" aria-expanded="false" aria-label="Показати опис гри Dixit" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          </div></section></main><footer class="site-footer border-t border-line py-12">
+      <div class="container mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)]">
+        <div class="footer-grid grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <section aria-labelledby="footer-brand">
+            <h2 id="footer-brand" class="mb-4 font-heading text-[clamp(1.7rem,3vw,2.25rem)] font-bold leading-tight tracking-tight text-heading">Geeker</h2>
+            <p class="mb-4">
+              Клуб настільних ігор. Від першої партії до нових ігрових
+              відкриттів.
+            </p>
+          </section>
+          <nav class="footer-nav" aria-label="Навігація у підвалі">
+            <h3 class="mb-4 font-heading text-lg font-bold text-heading">Навігація</h3><ul class="m-0 flex list-none flex-col gap-2 p-0">
+              <li><a href="index.html" aria-current="page" class="transition-colors hover:text-heading inline-flex min-h-11 items-center">Головна</a></li>
+              <li><a href="catalog.html" class="transition-colors hover:text-heading inline-flex min-h-11 items-center">Каталог ігор</a></li>
+              <li><a href="booking.html" class="transition-colors hover:text-heading inline-flex min-h-11 items-center">Бронювання столів</a></li>
+              <li><a href="events.html" class="transition-colors hover:text-heading inline-flex min-h-11 items-center">Турніри та івенти</a></li>
+              <li><a href="rental.html" class="transition-colors hover:text-heading inline-flex min-h-11 items-center">Правила оренди</a></li>
+              <li><a href="contacts.html" class="transition-colors hover:text-heading inline-flex min-h-11 items-center">Контакти та локація</a></li>
+            </ul>
+          </nav>
+          <section aria-labelledby="footer-help"><h3 id="footer-help" class="mb-4 font-heading text-lg font-bold text-heading">Перед грою</h3><ul class="m-0 list-none space-y-2 p-0"><li><a class="inline-flex min-h-11 items-center hover:text-heading" href="rental.html">Правила оренди</a></li><li><a class="inline-flex min-h-11 items-center hover:text-heading" href="booking.html">Забронювати стіл</a></li><li><a class="inline-flex min-h-11 items-center hover:text-heading" href="catalog.html#choice-title">Як обрати гру</a></li></ul></section><section aria-labelledby="footer-contact">
+            <h3 id="footer-contact" class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Перед візитом</h3>
+            <address class="not-italic">
+              <p class="mb-4">
+                Адресу, години роботи та вартість відвідування уточнюйте
+                безпосередньо в клубі.
+              </p>
+            </address>
+            <a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="contacts.html">Контакти та локація</a>
+          </section>
+        </div>
+        <div class="footer-note mt-12 flex flex-col justify-between gap-4 border-t border-line pt-6 text-xs text-muted md:flex-row">
+          <span>© 2026 Geeker. Навчальний вебпроєкт.</span><span>Обирайте гру. Збирайте друзів.</span>
+        </div>
+      </div>
+    </footer>
+  </body></html>

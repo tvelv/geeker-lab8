@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Каталог ігор. Geeker - настільні ігри, зустрічі з друзями та ігрові події.">
+    <title>Каталог ігор | Geeker</title>
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
+    <script src="js/main.js?v=cards-4" defer></script>
+  <link rel="stylesheet" href="css/tailwind.css?v=cards-4"><link rel="stylesheet" href="css/custom-styles.css?v=cards-4"></head>
+  <body class="bg-canvas font-body text-base leading-relaxed text-ink">
+    <a class="skip-link fixed -top-24 left-4 z-50 rounded-lg bg-heading p-4 text-canvas focus:top-4 transition-colors hover:text-heading" href="#main">Перейти до вмісту</a>
+    <!-- Header and navigation are landmarks, not anonymous div wrappers. -->
+    <header class="site-header border-b border-line bg-surface">
+      <div class="container header-inner mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] relative flex min-h-20 items-center justify-between gap-4 md:min-h-24 lg:gap-8">
+        <a class="brand inline-flex shrink-0 items-center transition-colors hover:text-heading" href="index.html" aria-label="Geeker - головна"><img src="assets/images/logo.png" width="88" height="80" alt="Geeker" class="h-20 w-[88px] object-contain md:h-[94px] md:w-[104px]"></a>
+        <nav class="desktop-nav hidden md:block" aria-label="Основна навігація">
+          <ul class="m-0 flex list-none flex-wrap gap-4 p-0 lg:gap-6">
+            <li><a href="catalog.html" aria-current="page" class="transition-colors hover:text-heading block py-2 text-sm">Каталог ігор</a></li>
+            <li><a href="booking.html" class="transition-colors hover:text-heading block py-2 text-sm">Бронювання столів</a></li>
+            <li><a href="events.html" class="transition-colors hover:text-heading block py-2 text-sm">Турніри та івенти</a></li>
+          </ul>
+        </nav>
+        <div class="header-cta hidden xl:block">
+          <a class="button button--primary inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border px-5 py-3 text-center font-medium leading-snug text-heading transition duration-200 hover:-translate-y-0.5 active:translate-y-px active:scale-[.98] disabled:pointer-events-none disabled:opacity-40 border-transparent bg-primary hover:border-violet-300 hover:bg-violet-500 hover:shadow-lg active:bg-violet-900 transition-colors hover:text-heading" href="booking.html">Забронювати стіл</a>
+        </div>
+        <details class="mobile-nav group ml-auto md:hidden">
+          <summary aria-label="Меню навігації" class="grid h-12 w-12 cursor-pointer list-none place-items-center rounded-lg border border-line text-heading hover:bg-raised">
+            <span class="hamburger relative block h-[18px] w-6" aria-hidden="true"><span class="absolute left-0 h-0.5 w-6 rounded bg-current transition duration-200 top-0"></span><span class="absolute left-0 h-0.5 w-6 rounded bg-current transition duration-200 top-2"></span><span class="absolute left-0 h-0.5 w-6 rounded bg-current transition duration-200 top-4"></span></span>
+          </summary>
+          <nav aria-label="Мобільна навігація" class="absolute inset-x-0 top-full z-30 rounded-lg border border-line bg-surface p-2 shadow-xl">
+            <ul class="m-0 list-none p-0">
+              <li><a href="index.html" class="transition-colors hover:text-heading block min-h-12 rounded-lg px-3 py-3 hover:bg-raised">Головна</a></li>
+              <li>
+                <a href="catalog.html" aria-current="page" class="transition-colors hover:text-heading block min-h-12 rounded-lg px-3 py-3 hover:bg-raised">Каталог ігор</a>
+              </li>
+              <li><a href="booking.html" class="transition-colors hover:text-heading block min-h-12 rounded-lg px-3 py-3 hover:bg-raised">Бронювання столів</a></li>
+              <li><a href="events.html" class="transition-colors hover:text-heading block min-h-12 rounded-lg px-3 py-3 hover:bg-raised">Турніри та івенти</a></li>
+              <li><a href="rental.html" class="transition-colors hover:text-heading block min-h-12 rounded-lg px-3 py-3 hover:bg-raised">Правила оренди</a></li>
+              <li><a href="contacts.html" class="transition-colors hover:text-heading block min-h-12 rounded-lg px-3 py-3 hover:bg-raised">Контакти та локація</a></li>
+            </ul>
+          </nav>
+        </details>
+      </div>
+      <div class="subnav hidden border-t border-line bg-canvas md:block">
+        <div class="container subnav-inner mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] flex min-h-10 items-center justify-between gap-4 text-xs text-muted">
+          <span>GEEKER / КЛУБ НАСТІЛЬНИХ ІГОР</span>
+          <nav aria-label="Додаткова навігація" class="flex gap-6">
+            <a href="rental.html" class="transition-colors hover:text-heading">Правила оренди</a><a href="contacts.html" class="transition-colors hover:text-heading">Контакти та локація</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main id="main">
+      <header class="container page-intro mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] py-12">
+        <nav class="breadcrumb mb-6 text-sm text-muted" aria-label="Шлях сторінки">
+          <ol class="list-decimal space-y-2 pl-5 m-0 flex list-none flex-wrap gap-2 p-0">
+            <li><a href="index.html" class="transition-colors hover:text-heading">Головна</a></li>
+            <li aria-current="page">Каталог ігор</li>
+          </ol>
+        </nav>
+        <h1 class="mb-4 font-heading text-[clamp(2rem,8vw,3.25rem)] font-bold leading-tight tracking-tight text-heading md:text-[clamp(2.25rem,3.5vw,3.25rem)]">Каталог ігор</h1>
+        <p class="mb-4">Оберіть формат для своєї наступної зустрічі.</p>
+      </header>
+      <section class="container section section--compact mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] py-14 md:py-20 !py-12" aria-labelledby="catalog-title">
+        <h2 id="catalog-title" class="mb-4 font-heading text-[clamp(1.7rem,3vw,2.25rem)] font-bold leading-tight tracking-tight text-heading">Ігри для вашої зустрічі</h2>
+        <form class="filter-form mb-8 flex flex-wrap items-end gap-4" id="catalog-filter" role="search">
+          <label class="grid gap-2 text-sm flex-[1_1_180px]">Пошук гри<input type="search" name="q" placeholder="Наприклад, Крила" class="min-h-12 w-full min-w-0 rounded-lg border border-line bg-canvas p-3 text-heading [color-scheme:dark]"></label><label class="grid gap-2 text-sm flex-[1_1_180px]">Формат<select name="category" class="min-h-12 w-full min-w-0 rounded-lg border border-line bg-canvas p-3 text-heading [color-scheme:dark]">
+              <option value="">Усі формати</option>
+              <option>Компанія</option>
+              <option>Стратегія</option>
+              <option>Кооперація</option>
+            </select></label><button class="button button--secondary inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border px-5 py-3 text-center font-medium leading-snug text-heading transition duration-200 hover:-translate-y-0.5 active:translate-y-px active:scale-[.98] disabled:pointer-events-none disabled:opacity-40 border-line bg-surface/80 hover:border-violet-300 hover:bg-raised active:bg-violet-950" type="reset">
+            Скинути
+          </button>
+        </form>
+        <p class="result-count small mb-6 text-sm text-muted text-sm text-muted mb-4" id="result-count" aria-live="polite">
+          Показано 8 ігор
+        </p>
+        <div class="card-grid grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" id="catalog-grid">
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-category="Стратегія" data-title="Крила wingspan" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/wingspan.png" alt="Коробка гри Крила" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Стратегія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Крила</h3><p class="small text-sm text-muted mb-4">Wingspan</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>1–5 гравців</span><span>40–70 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="game-details-wingspan">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Крила</h3><p class="mb-4">Приваблюйте птахів до заповідника та поєднуйте їхні здібності у вигідні комбінації.</p>
+      <p class="small text-sm text-muted mb-4">Спостерігайте за птахами, збирайте ресурси й будуйте ланцюжки дій. Добрий вибір, якщо подобається поступово розвивати власну стратегію.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>1–5 гравців</span><span>40–70 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="rental.html">Умови оренди →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="game-details-wingspan" aria-expanded="false" aria-label="Показати опис гри Крила" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-category="Стратегія" data-title="CATAN catan" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/catan.png" alt="Коробка гри CATAN" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Стратегія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">CATAN</h3><p class="small text-sm text-muted mb-4">Розбудова острова</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–4 гравців</span><span>60–90 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="game-details-catan">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">CATAN</h3><p class="mb-4">Збирайте ресурси, обмінюйтеся з сусідами та будуйте дороги й поселення на острові.</p>
+      <p class="small text-sm text-muted mb-4">Торгівля та переговори впливають на кожну партію. Підійде компанії, яка любить домовлятися й змагатися за найкращі місця на полі.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–4 гравців</span><span>60–90 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="rental.html">Умови оренди →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="game-details-catan" aria-expanded="false" aria-label="Показати опис гри CATAN" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-category="Компанія" data-title="Dixit dixit" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/dixit.webp" alt="Коробка гри Dixit" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Компанія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="small text-sm text-muted mb-4">Асоціації та уява</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="game-details-dixit">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dixit</h3><p class="mb-4">Придумуйте підказки до казкових ілюстрацій та відгадуйте, яку карту обрав оповідач.</p>
+      <p class="small text-sm text-muted mb-4">Тут важливі асоціації, фантазія та вміння відчути думки друзів. Пояснення коротке, а кожен новий оповідач змінює настрій партії.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–8 гравців</span><span>30 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="rental.html">Умови оренди →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="game-details-dixit" aria-expanded="false" aria-label="Показати опис гри Dixit" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-category="Кооперація" data-title="Mysterium mysterium" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/mysterium.webp" alt="Коробка гри Mysterium" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Кооперація</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Mysterium</h3><p class="small text-sm text-muted mb-4">Спільне розслідування</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–7 гравців</span><span>42 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="game-details-mysterium">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Mysterium</h3><p class="mb-4">Тлумачте загадкові видіння привида та разом розкрийте таємницю старого маєтку.</p>
+      <p class="small text-sm text-muted mb-4">Один учасник дає підказки образами, інші обговорюють їхні значення. Обирайте, якщо хочете разом розгадувати загадки.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>3–7 гравців</span><span>42 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="rental.html">Умови оренди →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="game-details-mysterium" aria-expanded="false" aria-label="Показати опис гри Mysterium" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-category="Стратегія" data-title="Harmonies harmonies" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/harmonies.webp" alt="Коробка гри Harmonies" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Стратегія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Harmonies</h3><p class="small text-sm text-muted mb-4">Природа у ваших руках</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>1–4 гравців</span><span>30 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="game-details-harmonies">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Harmonies</h3><p class="mb-4">Викладайте різнокольорові фішки, створюйте ландшафти та знаходьте місце для тварин.</p>
+      <p class="small text-sm text-muted mb-4">Створюйте об’ємний пейзаж і поєднуйте його з потребами тварин. Для тих, кому подобаються просторові головоломки та спокійний темп.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>1–4 гравців</span><span>30 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="rental.html">Умови оренди →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="game-details-harmonies" aria-expanded="false" aria-label="Показати опис гри Harmonies" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-category="Стратегія" data-title="Wyrmspan wyrmspan" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/wyrmspan.png" alt="Коробка гри Wyrmspan" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Стратегія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Wyrmspan</h3><p class="small text-sm text-muted mb-4">Заповідник драконів</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>1–5 гравців</span><span>90 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="game-details-wyrmspan">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Wyrmspan</h3><p class="mb-4">Досліджуйте печери, приваблюйте драконів та розвивайте власний незвичайний заповідник.</p>
+      <p class="small text-sm text-muted mb-4">Плануйте експедиції, розширюйте печери й поєднуйте здібності драконів. Для гравців, які люблять розвивати власну систему дій.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>1–5 гравців</span><span>90 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="rental.html">Умови оренди →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="game-details-wyrmspan" aria-expanded="false" aria-label="Показати опис гри Wyrmspan" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-category="Стратегія" data-title="Dice Forge dice-forge" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/dice-forge.webp" alt="Коробка гри Dice Forge" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Стратегія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dice Forge</h3><p class="small text-sm text-muted mb-4">Створіть власні кубики</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>2–4 гравців</span><span>45 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="game-details-dice-forge">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Dice Forge</h3><p class="mb-4">Змінюйте грані своїх кубиків, отримуйте ресурси та вирушайте на героїчні випробування.</p>
+      <p class="small text-sm text-muted mb-4">Покращуйте кубики просто під час партії. Вдале поєднання тактичного вибору, випадковості та змагання за корисні нагороди.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>2–4 гравців</span><span>45 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="rental.html">Умови оренди →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="game-details-dice-forge" aria-expanded="false" aria-label="Показати опис гри Dice Forge" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+          <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-category="Стратегія" data-title="Scythe scythe" data-card-interaction="flip">
+  <div class="flip-card__inner">
+    <div class="flip-card__face flip-card__front"><img class="game-art game-cover mb-6 w-full rounded-lg aspect-[4/3] bg-[#eeeaf7] p-4 object-contain" src="assets/images/games/scythe.png" alt="Коробка гри Scythe" width="640" height="480" loading="lazy"><span class="tag mb-6 inline-block max-w-full self-start rounded-lg bg-accent px-3 py-1 text-xs font-bold text-canvas">Стратегія</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Scythe</h3><p class="small text-sm text-muted mb-4">Механізми та території</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>1–5 гравців</span><span>115 хв</span></p></div>
+    <div class="flip-card__face flip-card__back" id="game-details-scythe">
+      <span class="card-eyebrow">ПРО ГРУ</span><h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Scythe</h3><p class="mb-4">Розвивайте господарство, керуйте мехами та змагайтеся за вплив в альтернативній Європі.</p>
+      <p class="small text-sm text-muted mb-4">Поєднуйте економічний розвиток, дослідження й контроль територій. Підійде компанії, готовій до тривалішої стратегічної партії.</p><p class="meta mt-auto flex flex-wrap gap-4 pt-4 text-sm text-muted mb-4"><span>1–5 гравців</span><span>115 хв</span></p><a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="rental.html">Умови оренди →</a>
+    </div>
+  </div>
+  <button class="card-toggle" type="button" aria-controls="game-details-scythe" aria-expanded="false" aria-label="Показати опис гри Scythe" hidden>
+    <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
+  </button>
+</article>
+        </div>
+        <p id="catalog-empty" hidden class="mb-4">
+          Нічого не знайдено. Спробуйте іншу назву або скиньте фільтри.
+        </p>
+        <p class="notice rounded-lg border-l-[3px] border-accent bg-raised px-6 py-4 mb-4">
+          Наявність гри, мову видання та умови оренди уточнюйте в клубі.
+        </p>
+      </section>
+      <section class="section container py-14 md:py-20 mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)]" aria-labelledby="choice-title">
+        <h2 id="choice-title" class="mb-4 font-heading text-[clamp(1.7rem,3vw,2.25rem)] font-bold leading-tight tracking-tight text-heading">Як обрати гру</h2>
+        <div class="card-grid grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card">
+            <h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Компанія</h3>
+            <p class="mb-4">Орієнтуйтеся на кількість учасників та їхній досвід.</p>
+          </article>
+          <article class="card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card">
+            <h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Час</h3>
+            <p class="mb-4">Залишайте час для пояснення правил перед першою партією.</p>
+          </article>
+          <article class="card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card">
+            <h3 class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Формат</h3>
+            <p class="mb-4">
+              Домовтеся, чи хочете змагатися, співпрацювати або просто
+              поспілкуватися.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="section section--compact container py-14 md:py-20 !py-12 mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)]" aria-labelledby="cta-title">
+        <div class="cta grid grid-cols-1 items-center gap-8 rounded-3xl border border-line bg-raised p-6 md:grid-cols-[1fr_auto] lg:p-12">
+          <header>
+            <h2 id="cta-title" class="mb-4 font-heading text-[clamp(1.7rem,3vw,2.25rem)] font-bold leading-tight tracking-tight text-heading">Наступна партія починається тут</h2>
+            <p class="mb-4 !mb-0">
+              Оберіть гру для своєї компанії та заплануйте зустріч у Geeker.
+            </p>
+          </header>
+          <a class="button button--primary inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border px-5 py-3 text-center font-medium leading-snug text-heading transition duration-200 hover:-translate-y-0.5 active:translate-y-px active:scale-[.98] disabled:pointer-events-none disabled:opacity-40 border-transparent bg-primary hover:border-violet-300 hover:bg-violet-500 hover:shadow-lg active:bg-violet-900 transition-colors hover:text-heading" href="booking.html">Забронювати стіл</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer border-t border-line py-12">
+      <div class="container mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)]">
+        <div class="footer-grid grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <section aria-labelledby="footer-brand">
+            <h2 id="footer-brand" class="mb-4 font-heading text-[clamp(1.7rem,3vw,2.25rem)] font-bold leading-tight tracking-tight text-heading">Geeker</h2>
+            <p class="mb-4">
+              Клуб настільних ігор. Від першої партії до нових ігрових
+              відкриттів.
+            </p>
+          </section>
+          <nav class="footer-nav" aria-label="Навігація у підвалі">
+            <h3 class="mb-4 font-heading text-lg font-bold text-heading">Навігація</h3><ul class="m-0 flex list-none flex-col gap-2 p-0">
+              <li><a href="index.html" class="transition-colors hover:text-heading inline-flex min-h-11 items-center">Головна</a></li>
+              <li>
+                <a href="catalog.html" aria-current="page" class="transition-colors hover:text-heading inline-flex min-h-11 items-center">Каталог ігор</a>
+              </li>
+              <li><a href="booking.html" class="transition-colors hover:text-heading inline-flex min-h-11 items-center">Бронювання столів</a></li>
+              <li><a href="events.html" class="transition-colors hover:text-heading inline-flex min-h-11 items-center">Турніри та івенти</a></li>
+              <li><a href="rental.html" class="transition-colors hover:text-heading inline-flex min-h-11 items-center">Правила оренди</a></li>
+              <li><a href="contacts.html" class="transition-colors hover:text-heading inline-flex min-h-11 items-center">Контакти та локація</a></li>
+            </ul>
+          </nav>
+          <section aria-labelledby="footer-help"><h3 id="footer-help" class="mb-4 font-heading text-lg font-bold text-heading">Перед грою</h3><ul class="m-0 list-none space-y-2 p-0"><li><a class="inline-flex min-h-11 items-center hover:text-heading" href="rental.html">Правила оренди</a></li><li><a class="inline-flex min-h-11 items-center hover:text-heading" href="booking.html">Забронювати стіл</a></li><li><a class="inline-flex min-h-11 items-center hover:text-heading" href="catalog.html#choice-title">Як обрати гру</a></li></ul></section><section aria-labelledby="footer-contact">
+            <h3 id="footer-contact" class="mb-4 font-heading text-lg font-bold leading-snug text-heading">Перед візитом</h3>
+            <address class="not-italic">
+              <p class="mb-4">
+                Адресу, години роботи та вартість відвідування уточнюйте
+                безпосередньо в клубі.
+              </p>
+            </address>
+            <a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus transition-colors hover:text-heading" href="contacts.html">Контакти та локація</a>
+          </section>
+        </div>
+        <div class="footer-note mt-12 flex flex-col justify-between gap-4 border-t border-line pt-6 text-xs text-muted md:flex-row">
+          <span>© 2026 Geeker. Навчальний вебпроєкт.</span><span>Обирайте гру. Збирайте друзів.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
