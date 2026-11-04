@@ -49,3 +49,15 @@ copy.addEventListener('click', async () => {
  catch { copy.textContent = 'Виділіть і скопіюйте текст плану вручну'; }
 });
 document.querySelectorAll('header details a').forEach(link => link.addEventListener('click', () => link.closest('details').open = false));
+
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const cardObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add('is-revealed');
+      cardObserver.unobserve(entry.target);
+    }
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('#benefits article, #services article').forEach(card => cardObserver.observe(card));
+}
