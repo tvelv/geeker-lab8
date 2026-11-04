@@ -5,25 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Клуб настільних ігор. Geeker - настільні ігри, зустрічі з друзями та ігрові події.">
     <title>Ігровий вечір у Geeker — знайдіть свою гру</title>
-    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <link rel="icon" href="assets/images/geeker-mark.svg" type="image/svg+xml" sizes="any">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
-    <script src="js/main.js?v=lab7" defer></script>
+    <script src="js/main.js?v=lab7-ui" defer></script>
   <link rel="stylesheet" href="css/tailwind.css?v=lab7">
-<link rel="stylesheet" href="css/custom-styles.css?v=landing-motion">
-<script src="js/landing.js?v=landing-motion" defer></script>
+<link rel="stylesheet" href="css/custom-styles.css?v=lab7-hero">
+<script src="js/landing.js?v=lab7-hero" defer></script>
 </head>
   <body class="geeker-landing bg-canvas font-body leading-relaxed text-ink">
 <a class="fixed -top-24 left-4 z-50 rounded-lg bg-heading p-4 text-canvas focus:top-4" href="#main">Перейти до вмісту</a>
-<header class="border-b border-line bg-surface">
-<div class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] relative flex min-h-24 items-center justify-between gap-4">
-<a href="#main" aria-label="Geeker — на початок"><img src="assets/images/logo.png" alt="Geeker" width="104" height="94" class="h-20 w-24 object-contain md:h-24"></a>
-<nav aria-label="Основна навігація" class="hidden items-center gap-1 text-sm md:flex"><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus" href="#benefits">Переваги</a><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus" href="#games">Ігри</a><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus" href="#media">Відео</a><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus" href="#contacts">Перед візитом</a></nav>
-<a class="min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-center font-semibold text-heading transition-colors hover:bg-violet-600 hover:shadow-lg active:bg-violet-900 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-focus hidden xl:flex" href="#plan">Запланувати гру</a>
-<details class="group md:hidden"><summary aria-label="Меню навігації" class="grid h-12 w-12 cursor-pointer list-none place-items-center rounded-lg border border-line text-heading [&amp;::-webkit-details-marker]:hidden"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path></svg></summary><nav aria-label="Мобільна навігація" class="absolute inset-x-0 top-full z-30 grid rounded-xl border border-line bg-surface p-3 shadow-xl"><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus" href="#benefits">Переваги</a><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus" href="#games">Ігри</a><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus" href="#media">Відео</a><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus" href="#contacts">Перед візитом</a><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus" href="#plan">Запланувати гру</a></nav></details>
-</div></header>
-<main id="main">
+<header class="lab7-header">
+  <div class="lab7-header__inner">
+    <a class="lab7-brand" href="index.html" aria-label="Geeker — головна">
+      <img src="assets/images/geeker-mark.svg" width="56" height="56" alt="">
+      <span>Geeker</span>
+    </a>
+    <nav class="lab7-nav" aria-label="Основна навігація">
+      <a href="index.html" aria-current="page">Головна</a>
+<a href="catalog.html">Каталог ігор</a>
+<a href="booking.html">Бронювання</a>
+<a href="events.html">Події</a>
+<a href="rental.html">Оренда</a>
+<a href="contacts.html">Контакти</a>
+<a href="about.html">Про нас</a>
+<a href="index.html#faq">Запитання</a>
+    </nav>
+    <details class="lab7-menu">
+      <summary aria-label="Меню навігації">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </summary>
+      <nav aria-label="Мобільна навігація">
+        <a href="index.html" aria-current="page">Головна</a>
+<a href="catalog.html">Каталог ігор</a>
+<a href="booking.html">Бронювання</a>
+<a href="events.html">Події</a>
+<a href="rental.html">Оренда</a>
+<a href="contacts.html">Контакти</a>
+<a href="about.html">Про нас</a>
+<a href="index.html#faq">Запитання</a>
+      </nav>
+    </details>
+  </div>
+</header>
+<main id="main" tabindex="-1">
 <section aria-labelledby="hero-title" class="relative isolate overflow-hidden border-b border-line">
 <img src="assets/images/hero.webp" alt="" width="1536" height="1024" fetchpriority="high" class="absolute inset-0 -z-20 h-full w-full object-cover object-[70%_center]">
 <div class="absolute inset-0 -z-10 bg-linear-to-r from-canvas via-canvas/90 to-canvas/45 md:via-canvas/75 md:to-canvas/10"></div>
@@ -35,7 +61,15 @@
 <a class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-center font-semibold text-heading transition-colors hover:bg-violet-600 hover:shadow-lg active:bg-violet-900 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-focus w-full sm:w-auto" href="#plan">Запланувати ігровий вечір <span class="ml-3" aria-hidden="true">↗</span></a>
 <p class="mt-5 text-sm text-slate-300">Спочатку оберіть компанію. З грою допоможемо визначитися.</p>
 </div>
-</div></section>
+</div>
+<button class="hero-motion-toggle" type="button" aria-label="Призупинити рух банера" hidden>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path class="hero-pause" d="M7 5h4v14H7zm6 0h4v14h-4z"/>
+    <path class="hero-play" d="M8 5v14l11-7z"/>
+  </svg>
+  <span>Пауза</span>
+</button>
+</section>
 <section id="benefits" aria-labelledby="benefits-title" class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] scroll-mt-6 py-14 md:py-20">
 <p class="mb-3 text-sm text-violet-300">Менше екранів. Більше спільного.</p>
 <h2 id="benefits-title" class="mb-4 font-heading text-3xl font-bold leading-tight text-heading md:text-4xl">Місце для вашої наступної партії</h2>
@@ -67,9 +101,14 @@
 <a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus hover:text-heading" href="catalog.html">Обрати гру →</a>
     </div>
   </div>
+  <div class="game-card-actions">
   <button class="card-toggle" type="button" aria-controls="home-game-details-dixit" aria-expanded="false" aria-label="Показати опис гри Dixit" hidden>
     <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
   </button>
+  <a class="game-video-link" href="https://www.youtube.com/watch?v=YnLv54wmhxU" target="_blank" rel="noopener noreferrer" data-game-video="YnLv54wmhxU" data-video-title="Dixit" aria-label="Відео про гру Dixit">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> Відео
+  </a>
+</div>
 </article>
           <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-card-interaction="flip">
   <div class="flip-card__inner">
@@ -86,9 +125,14 @@
 <a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus hover:text-heading" href="catalog.html">Обрати гру →</a>
     </div>
   </div>
+  <div class="game-card-actions">
   <button class="card-toggle" type="button" aria-controls="home-game-details-wingspan" aria-expanded="false" aria-label="Показати опис гри Крила" hidden>
     <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
   </button>
+  <a class="game-video-link" href="https://www.youtube.com/watch?v=1V8iR3OuHV8" target="_blank" rel="noopener noreferrer" data-game-video="1V8iR3OuHV8" data-video-title="Крила" aria-label="Відео про гру Крила">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> Відео
+  </a>
+</div>
 </article>
           <article class="card game-card flip-card min-w-0 rounded-2xl border border-line bg-surface p-6 shadow-card flex flex-col items-start" data-card-interaction="flip">
   <div class="flip-card__inner">
@@ -105,9 +149,14 @@
 <a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus hover:text-heading" href="catalog.html">Обрати гру →</a>
     </div>
   </div>
+  <div class="game-card-actions">
   <button class="card-toggle" type="button" aria-controls="home-game-details-mysterium" aria-expanded="false" aria-label="Показати опис гри Mysterium" hidden>
     <span class="card-toggle__label">Про гру</span><span class="card-toggle__icon" aria-hidden="true"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"></path></svg></span>
   </button>
+  <a class="game-video-link" href="https://www.youtube.com/watch?v=ZLe8e6Xa_MI" target="_blank" rel="noopener noreferrer" data-game-video="ZLe8e6Xa_MI" data-video-title="Містеріум" aria-label="Відео про гру Містеріум">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> Відео
+  </a>
+</div>
 </article>
         </div>
         <p class="small featured-note text-sm text-muted mb-3 mt-5 mb-4">
@@ -134,6 +183,7 @@
 <h2 id="about-title" class="mb-4 font-heading text-3xl font-bold leading-tight text-heading md:text-4xl">Не потрібно вміти грати в усе.</h2>
 <p class="mb-5">Geeker — навчальний проєкт клубу настільних ігор. Його ідея проста: допомогти обрати гру й зібрати людей за одним столом.</p>
 <p>У добірці є ігри на асоціації, стратегічні рішення та командну взаємодію. Оберіть знайому механіку або спробуйте щось нове.</p>
+<a class="about-teaser" href="about.html">Більше про Geeker ↗</a>
 </div>
 <div class="rounded-2xl border border-line bg-raised p-8">
 <h3 class="mb-4 font-heading text-xl font-bold text-heading">Перша зустріч у три кроки</h3>
@@ -150,18 +200,34 @@
 <section id="contacts" aria-labelledby="contacts-title" class="border-y border-line bg-surface py-14 md:py-20"><div class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)]">
 <h2 id="contacts-title" class="mb-4 font-heading text-3xl font-bold leading-tight text-heading md:text-4xl">Підготуйтеся до зустрічі</h2>
 <p class="mb-8 max-w-2xl">Точну адресу Geeker ще не надано. Карта нижче показує центр Львова як демонстрацію інтеграції, а не місце розташування клубу.</p>
-<div class="grid items-start gap-6 lg:grid-cols-3">
-<div class="min-w-0 lg:col-span-2">
+<div class="visit-grid">
+<div class="visit-map">
 <!-- Map integration: illustrative city map, not an invented club address. -->
 <iframe class="h-80 w-full rounded-2xl border border-line bg-raised md:h-96" width="800" height="384" src="https://maps.google.com/maps?q=Lviv%20Rynok%20Square&amp;z=14&amp;output=embed" title="Демонстраційна карта центру Львова — не адреса Geeker" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus mt-2 inline-flex text-sm text-violet-200" href="https://www.google.com/maps/search/?api=1&amp;query=Lviv+Rynok+Square" target="_blank" rel="noopener noreferrer">Відкрити карту окремо ↗</a>
 </div>
 <!-- Third-party live informer: Open-Meteo API, rendered without a tracking SDK. -->
-<aside aria-labelledby="weather-title" class="rounded-2xl border border-line bg-canvas p-6"><p class="mb-3 text-xs uppercase tracking-widest text-violet-300">Перед виходом</p>
-<h3 id="weather-title" class="mb-5 font-heading text-xl font-bold text-heading">Погода у Львові</h3>
-<p id="weather-value" class="mb-3 text-4xl font-semibold text-heading">—</p>
-<p id="weather-status" role="status" aria-live="polite" class="min-h-12 text-sm">Завантажуємо поточні дані…</p>
-<button id="weather-retry" type="button" class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus mt-3 border border-line text-sm">Оновити погоду</button><p class="mt-5 text-xs text-muted">Модельні дані: <a class="underline hover:text-heading" href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>. Геолокація не потрібна.</p>
-<noscript>Для погоди увімкніть JavaScript або відкрийте сайт Open-Meteo.</noscript></aside>
+<aside aria-labelledby="weather-title" class="weather-card">
+  <p class="weather-eyebrow">Перед виходом · Львів</p>
+  <h3 id="weather-title">Погода у Львові</h3>
+  <div class="weather-current">
+    <span id="weather-icon" aria-hidden="true">◌</span>
+    <p id="weather-value">—</p>
+  </div>
+  <p id="weather-status" role="status">Дані погоди ще не завантажено.</p>
+  <dl class="weather-metrics" hidden>
+    <div><dt>Відчувається</dt><dd id="weather-feels">—</dd></div>
+    <div><dt>Вітер</dt><dd id="weather-wind">—</dd></div>
+  </dl>
+  <details class="weather-forecast" hidden>
+    <summary>Прогноз на найближчі години</summary>
+    <ul id="weather-hours" aria-label="Погодинний прогноз за Києвом"></ul>
+  </details>
+  <div class="weather-footer">
+    <button id="weather-retry" type="button" hidden><span aria-hidden="true">↻</span> Оновити</button>
+    <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo ↗</a>
+  </div>
+  <noscript><p>Переглянути прогноз можна на сайті Open-Meteo.</p></noscript>
+</aside>
 </div>
 </div></section>
 <section id="plan" aria-labelledby="plan-title" class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] grid gap-10 py-14 md:grid-cols-2 md:py-20"><div>
@@ -178,13 +244,35 @@
 <option value="Командна взаємодія">Командна взаємодія</option></select><button type="submit" class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-center font-semibold text-heading transition-colors hover:bg-violet-600 hover:shadow-lg active:bg-violet-900 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-focus w-full">Скласти мій план</button><div id="plan-result" role="status" class="mt-6 rounded-xl border border-line bg-canvas p-4" hidden></div>
 <button type="button" id="copy-plan" class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus mt-3 w-full border border-line" hidden>Скопіювати план</button><noscript><p class="mt-4">Щоб скласти план, увімкніть JavaScript. Добірка ігор доступна вище.</p></noscript>
 </form></section>
-<section class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] pb-14" aria-labelledby="faq-title"><h2 id="faq-title" class="mb-4 font-heading text-3xl font-bold leading-tight text-heading md:text-4xl">Перед першою грою</h2>
-<details class="border-b border-line py-4"><summary class="cursor-pointer py-2 font-semibold text-heading">Я ще не грав у настільні ігри. Із чого почати?</summary><p class="mt-3 max-w-3xl">Почніть з асоціацій або нескладної гри для компанії. У каталозі можна переглянути опис, кількість гравців та орієнтовну тривалість.</p></details><details class="border-b border-line py-4"><summary class="cursor-pointer py-2 font-semibold text-heading">Чи можна прийти без своєї компанії?</summary><p class="mt-3 max-w-3xl">Перегляньте формати відкритих зустрічей на сторінці подій. Актуальну дату й наявність місць потрібно уточнити у клубі.</p></details><details class="border-b border-line py-4"><summary class="cursor-pointer py-2 font-semibold text-heading">Як підтвердити бронювання?</summary><p class="mt-3 max-w-3xl">План на цій сторінці не резервує стіл. Для підтвердження потрібно погодити з клубом дату, адресу, кількість гостей та вартість.</p></details></section></main><footer class="border-t border-line bg-surface py-10"><div class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] flex flex-col justify-between gap-6 md:flex-row">
-<div>
-<p class="mb-2 font-heading text-2xl font-bold text-heading">Geeker</p>
-<p class="text-sm">© 2026. Навчальний проєкт клубу настільних ігор.</p>
-</div>
-<nav aria-label="Навігація у підвалі" class="flex flex-wrap gap-2 text-sm"><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus" href="#main">На початок ↑</a><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus" href="catalog.html">Повний каталог</a><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus" href="events.html">Події</a></nav>
-</div></footer>
+<section class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] pb-14" id="faq" aria-labelledby="faq-title"><h2 id="faq-title" class="mb-4 font-heading text-3xl font-bold leading-tight text-heading md:text-4xl">Поширені запитання</h2>
+<details class="border-b border-line py-4"><summary class="cursor-pointer py-2 font-semibold text-heading">Я ще не грав у настільні ігри. Із чого почати?</summary><p class="mt-3 max-w-3xl">Почніть з асоціацій або нескладної гри для компанії. У каталозі можна переглянути опис, кількість гравців та орієнтовну тривалість.</p></details><details class="border-b border-line py-4"><summary class="cursor-pointer py-2 font-semibold text-heading">Чи можна прийти без своєї компанії?</summary><p class="mt-3 max-w-3xl">Перегляньте формати відкритих зустрічей на сторінці подій. Актуальну дату й наявність місць потрібно уточнити у клубі.</p></details><details class="border-b border-line py-4"><summary class="cursor-pointer py-2 font-semibold text-heading">Як підтвердити бронювання?</summary><p class="mt-3 max-w-3xl">План на цій сторінці не резервує стіл. Для підтвердження потрібно погодити з клубом дату, адресу, кількість гостей та вартість.</p></details></section></main><footer class="lab7-footer">
+  <div class="lab7-footer__inner">
+    <div>
+      <a class="lab7-brand" href="index.html" aria-label="Geeker — головна">
+        <img src="assets/images/geeker-mark.svg" width="48" height="48" alt="">
+        <span>Geeker</span>
+      </a>
+      <p>© 2026. Навчальний проєкт клубу настільних ігор.</p>
+    </div>
+    <nav aria-label="Навігація у підвалі">
+      <a href="index.html" aria-current="page">Головна</a>
+<a href="catalog.html">Каталог ігор</a>
+<a href="booking.html">Бронювання</a>
+<a href="events.html">Події</a>
+<a href="rental.html">Оренда</a>
+<a href="contacts.html">Контакти</a>
+<a href="about.html">Про нас</a>
+<a href="index.html#faq">Поширені запитання</a>
+    </nav>
+  </div>
+</footer>
+<dialog class="game-video-dialog" id="game-video" aria-labelledby="game-video-title">
+  <div class="game-video-dialog__header">
+    <h2 id="game-video-title">Відео про гру</h2>
+    <form method="dialog"><button type="submit" autofocus>Закрити</button></form>
+  </div>
+  <div class="game-video-dialog__player"></div>
+  <a class="game-video-dialog__external" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">Відкрити на YouTube ↗</a>
+</dialog>
 </body>
 </html>

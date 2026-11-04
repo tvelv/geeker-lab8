@@ -97,3 +97,46 @@ if (booking) {
       "Поля заявки заповнено коректно. Це навчальна демонстрація: бронювання не створено, дані нікуди не надіслано.";
   });
 }
+
+const menu = document.querySelector(".lab7-menu");
+if (menu) {
+  menu.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+    menu.open = false;
+  }));
+  menu.addEventListener("keydown", event => {
+    if (event.key !== "Escape" || !menu.open) return;
+    menu.open = false;
+    menu.querySelector("summary").focus();
+  });
+}
+
+const videoDialog = document.querySelector("#game-video");
+if (videoDialog && typeof videoDialog.showModal === "function" && location.protocol !== "file:") {
+  const title = videoDialog.querySelector("h2");
+  const player = videoDialog.querySelector(".game-video-dialog__player");
+  const external = videoDialog.querySelector(".game-video-dialog__external");
+  let trigger;
+
+  document.querySelectorAll("[data-game-video]").forEach(link => {
+    link.addEventListener("click", event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      trigger = link;
+      title.textContent = "Відео · " + link.dataset.videoTitle;
+      external.href = link.href;
+
+      const frame = document.createElement("iframe");
+      frame.title = "Відео про гру " + link.dataset.videoTitle;
+      frame.src = "https://www.youtube-nocookie.com/embed/" + link.dataset.gameVideo + "?rel=0";
+      frame.referrerPolicy = "strict-origin-when-cross-origin";
+      frame.allow = "encrypted-media; picture-in-picture; fullscreen";
+      frame.allowFullscreen = true;
+      player.replaceChildren(frame);
+      videoDialog.showModal();
+    });
+  });
+  videoDialog.addEventListener("close", () => {
+    player.replaceChildren();
+    trigger?.focus();
+  });
+}
