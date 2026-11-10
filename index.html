@@ -13,6 +13,13 @@
   <link rel="stylesheet" href="css/tailwind.css?v=lab7">
 <link rel="stylesheet" href="css/custom-styles.css?v=lab7-hero">
 <script src="js/landing.js?v=lab7-hero" defer></script>
+    <link id="swiper-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css">
+    <link id="fancybox-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+    <script src="js/gallery.js" defer></script>
 </head>
   <body class="geeker-landing bg-canvas font-body leading-relaxed text-ink">
 <a class="fixed -top-24 left-4 z-50 rounded-lg bg-heading p-4 text-canvas focus:top-4" href="#main">Перейти до вмісту</a>
@@ -57,6 +64,7 @@
 <div>
 <p class="mb-5 text-xs uppercase tracking-widest text-violet-200">Geeker / клуб настільних ігор</p>
 <h1 id="hero-title" class="mb-6 font-heading text-4xl font-bold leading-tight tracking-tight text-heading sm:text-5xl lg:text-6xl">Хороший вечір<br>починається<br><span class="hero-accent">з однієї гри.</span></h1>
+<p class="geeker-hero-line"><span class="sr-only">Зберіть друзів за грою.</span><span aria-hidden="true" data-hero-typed>Зберіть друзів за грою.</span></p>
 <p class="mb-8 max-w-md text-lg text-slate-200">Збирайте друзів, відкривайте нові настільні світи та знаходьте свою наступну улюблену гру.</p>
 <a class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-center font-semibold text-heading transition-colors hover:bg-violet-600 hover:shadow-lg active:bg-violet-900 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-focus w-full sm:w-auto" href="#plan">Запланувати ігровий вечір <span class="ml-3" aria-hidden="true">↗</span></a>
 <p class="mt-5 text-sm text-slate-300">Спочатку оберіть компанію. З грою допоможемо визначитися.</p>
@@ -166,7 +174,93 @@
         <a class="text-link text-heading underline underline-offset-4 transition-colors hover:text-focus hover:text-heading" href="catalog.html">Усі ігри в каталозі
           <span class="ml-2 inline-block" aria-hidden="true">→</span></a>
       </section>
-      <section id="services" aria-labelledby="services-title" class="border-y border-line bg-surface py-14 md:py-20"><div class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)]">
+      <section id="gallery" class="geeker-gallery mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] py-14 md:py-20" aria-labelledby="gallery-title">
+  <header class="geeker-gallery__header">
+    <div>
+      <p class="mb-3 text-sm font-semibold text-violet-300">Добірка клубу</p>
+      <h2 id="gallery-title" class="mb-4 font-heading text-3xl font-bold text-heading md:text-4xl">Ігри зблизька</h2>
+      <p>Гортайте добірку та натискайте на обкладинки, щоб роздивитися їх.</p>
+    </div>
+    <a class="text-link" href="catalog.html">Перейти до каталогу →</a>
+  </header>
+  <div class="swiper geeker-gallery__swiper">
+    <div class="swiper-wrapper" id="gallery-slides">
+      <article class="swiper-slide geeker-gallery__slide">
+        <a class="geeker-gallery__cover" href="assets/images/games/wingspan.png" data-fancybox="geeker-covers" data-caption="Крила" aria-label="Збільшити обкладинку гри Крила">
+          <img src="assets/images/games/wingspan.png" width="640" height="480" loading="lazy" decoding="async" alt="Обкладинка гри Крила">
+          <span class="geeker-gallery__zoom" aria-hidden="true">↗</span>
+        </a>
+        <div class="geeker-gallery__info">
+          <p class="geeker-gallery__tag">Стратегія</p>
+          <h3>Крила</h3>
+          <p>Збирайте птахів і створюйте для них заповідник.</p>
+        </div>
+      </article>
+      <article class="swiper-slide geeker-gallery__slide">
+        <a class="geeker-gallery__cover" href="assets/images/games/dixit.webp" data-fancybox="geeker-covers" data-caption="Dixit" aria-label="Збільшити обкладинку гри Dixit">
+          <img src="assets/images/games/dixit.webp" width="640" height="480" loading="lazy" decoding="async" alt="Обкладинка гри Dixit">
+          <span class="geeker-gallery__zoom" aria-hidden="true">↗</span>
+        </a>
+        <div class="geeker-gallery__info">
+          <p class="geeker-gallery__tag">Асоціації</p>
+          <h3>Dixit</h3>
+          <p>Вигадуйте підказки до ілюстрацій і вгадуйте задуми друзів.</p>
+        </div>
+      </article>
+      <article class="swiper-slide geeker-gallery__slide">
+        <a class="geeker-gallery__cover" href="assets/images/games/catan.png" data-fancybox="geeker-covers" data-caption="CATAN" aria-label="Збільшити обкладинку гри CATAN">
+          <img src="assets/images/games/catan.png" width="640" height="480" loading="lazy" decoding="async" alt="Обкладинка гри CATAN">
+          <span class="geeker-gallery__zoom" aria-hidden="true">↗</span>
+        </a>
+        <div class="geeker-gallery__info">
+          <p class="geeker-gallery__tag">Переговори</p>
+          <h3>CATAN</h3>
+          <p>Торгуйте ресурсами та будуйте поселення на острові.</p>
+        </div>
+      </article>
+      <article class="swiper-slide geeker-gallery__slide">
+        <a class="geeker-gallery__cover" href="assets/images/games/mysterium.webp" data-fancybox="geeker-covers" data-caption="Містеріум" aria-label="Збільшити обкладинку гри Містеріум">
+          <img src="assets/images/games/mysterium.webp" width="640" height="480" loading="lazy" decoding="async" alt="Обкладинка гри Містеріум">
+          <span class="geeker-gallery__zoom" aria-hidden="true">↗</span>
+        </a>
+        <div class="geeker-gallery__info">
+          <p class="geeker-gallery__tag">Кооперація</p>
+          <h3>Містеріум</h3>
+          <p>Розгадайте таємницю разом за підказками привида.</p>
+        </div>
+      </article>
+      <article class="swiper-slide geeker-gallery__slide">
+        <a class="geeker-gallery__cover" href="assets/images/games/harmonies.webp" data-fancybox="geeker-covers" data-caption="Harmonies" aria-label="Збільшити обкладинку гри Harmonies">
+          <img src="assets/images/games/harmonies.webp" width="640" height="480" loading="lazy" decoding="async" alt="Обкладинка гри Harmonies">
+          <span class="geeker-gallery__zoom" aria-hidden="true">↗</span>
+        </a>
+        <div class="geeker-gallery__info">
+          <p class="geeker-gallery__tag">Головоломка</p>
+          <h3>Harmonies</h3>
+          <p>Складайте ландшафти й заселяйте їх тваринами.</p>
+        </div>
+      </article>
+      <article class="swiper-slide geeker-gallery__slide">
+        <a class="geeker-gallery__cover" href="assets/images/games/dice-forge.webp" data-fancybox="geeker-covers" data-caption="Кузня долі" aria-label="Збільшити обкладинку гри Кузня долі">
+          <img src="assets/images/games/dice-forge.webp" width="640" height="480" loading="lazy" decoding="async" alt="Обкладинка гри Кузня долі">
+          <span class="geeker-gallery__zoom" aria-hidden="true">↗</span>
+        </a>
+        <div class="geeker-gallery__info">
+          <p class="geeker-gallery__tag">Стратегія</p>
+          <h3>Кузня долі</h3>
+          <p>Змінюйте грані кубиків і випробовуйте власну удачу.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="geeker-gallery__controls" hidden>
+    <button class="geeker-gallery__arrow" type="button" data-gallery-prev aria-controls="gallery-slides" aria-label="Попередній слайд">←</button>
+    <div class="geeker-gallery__pagination" aria-label="Вибір слайда"></div>
+    <button class="geeker-gallery__arrow" type="button" data-gallery-next aria-controls="gallery-slides" aria-label="Наступний слайд">→</button>
+    <button class="geeker-gallery__autoplay" type="button" aria-controls="gallery-slides" data-gallery-autoplay>Призупинити автопрокрутку</button>
+  </div>
+</section>
+<section id="services" aria-labelledby="services-title" class="border-y border-line bg-surface py-14 md:py-20"><div class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)]">
 <h2 id="services-title" class="mb-4 font-heading text-3xl font-bold leading-tight text-heading md:text-4xl">Один клуб. Різні способи грати.</h2>
 <div class="mt-8 grid gap-6 md:grid-cols-3">
 <article class="flex flex-col rounded-2xl border border-line p-6"><h3 class="mb-3 font-heading text-xl font-bold text-heading">Вечір із друзями</h3>
