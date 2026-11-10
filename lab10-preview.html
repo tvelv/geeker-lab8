@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прототип галереї Geeker у StackBlitz</title>
+  <link rel="icon" href="assets/images/geeker-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/tailwind.css">
+</head>
+<body class="bg-canvas font-body leading-relaxed text-ink">
+  <main class="mx-auto w-[calc(100%-2rem)] max-w-2xl py-14 md:py-20">
+    <a class="text-violet-300 underline" href="index.html#gallery">← До галереї Geeker</a>
+    <h1 class="mb-4 mt-6 font-heading text-3xl font-bold text-heading">Прототип галереї у StackBlitz</h1>
+    <p class="mb-6">Відкрийте навчальну копію галереї в онлайн-редакторі. StackBlitz отримає публічний код прототипу та відкриє перегляд поруч із редактором.</p>
+    <form action="https://stackblitz.com/run?file=gallery.js" method="post">
+      <input type="hidden" name="project[title]" value="Geeker — Lab 10 gallery prototype">
+      <input type="hidden" name="project[description]" value="Swiper and Fancybox media gallery for a Ukrainian board game club">
+      <input type="hidden" name="project[template]" value="javascript">
+      <input type="hidden" name="project[dependencies]" value="{}">
+      <input type="hidden" name="project[files][index.html]" value="&lt;!doctype html&gt;&lt;html lang=&quot;uk&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&lt;title&gt;Geeker — прототип галереї&lt;/title&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://geeker-lab8.netlify.app/css/tailwind.css&quot;&gt;    &lt;link id=&quot;swiper-css&quot; rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css&quot;&gt;
+    &lt;link id=&quot;fancybox-css&quot; rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css&quot;&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js&quot; defer&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js&quot; defer&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js&quot; defer&gt;&lt;/script&gt;
+&lt;style&gt;
+.geeker-gallery { scroll-margin-top: 6rem; min-width: 0; }
+.geeker-gallery__header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: .8rem 2rem; margin-bottom: 1.75rem; }
+.geeker-gallery__swiper { min-width: 0; padding: .25rem; }
+.geeker-gallery__swiper:not(.swiper-initialized) .swiper-wrapper {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1rem;
+}
+.geeker-gallery__slide { height: auto; overflow: hidden; border: 1px solid #624780; border-radius: 1rem; background: #211633; }
+.geeker-gallery__cover {
+  position: relative; display: grid; place-items: center; padding: clamp(.75rem, 4vw, 1.4rem);
+  background: radial-gradient(ellipse at 50% 100%, #6b4784, #3b2855 70%);
+}
+.geeker-gallery__cover img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; transition: transform .25s ease; }
+.geeker-gallery__cover:hover img { transform: scale(1.04); }
+.geeker-gallery__cover:focus-visible { outline: 2px solid #e8c9ff; outline-offset: -4px; }
+.geeker-gallery__zoom {
+  position: absolute; bottom: .7rem; right: .7rem; display: grid; place-items: center;
+  width: 2rem; height: 2rem; border-radius: 50%; background: #201333; color: #fcf6ff;
+}
+.geeker-gallery__info { padding: 1rem 1.15rem 1.2rem; color: #e3d6eb; }
+.geeker-gallery__info h3 { margin: .3rem 0; color: #fcf6ff; font-weight: 700; font-size: 1.25rem; }
+.geeker-gallery__tag { color: #e0c3ff; font-size: .8rem; font-weight: 700; }
+.geeker-gallery__controls:not([hidden]) { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .6rem; margin-top: 1rem; }
+.geeker-gallery__arrow, .geeker-gallery__autoplay {
+  min-height: 2.75rem; min-width: 2.75rem; padding: .4rem .65rem;
+  border: 1px solid #80649b; border-radius: .65rem; color: #fcf6ff; background: #241737;
+}
+.geeker-gallery__arrow:hover, .geeker-gallery__autoplay:hover { background: #472862; }
+.geeker-gallery__controls :focus-visible { outline: 2px solid #e8c9ff; outline-offset: 2px; }
+.geeker-gallery__controls .geeker-gallery__pagination { display: flex; align-items: center; width: auto; }
+.geeker-gallery__pagination .swiper-pagination-bullet {
+  display: grid; place-items: center; width: 1.75rem; height: 2.75rem; background: none; opacity: 1;
+}
+.geeker-gallery__pagination .swiper-pagination-bullet::before {
+  content: &quot;&quot;; width: .62rem; height: .62rem; border-radius: 50%; border: 1px solid #cda8ff;
+}
+.geeker-gallery__pagination .swiper-pagination-bullet-active::before { background: #cda8ff; }
+.geeker-hero-line { display: grid; margin-bottom: .65rem; color: #e5caff; font-weight: 700; }
+.geeker-hero-line &gt; [aria-hidden=&quot;true&quot;] { grid-area: 1 / 1; }
+.geeker-hero-line::before { content: &quot;Зберіть друзів за грою.&quot;; grid-area: 1 / 1; visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { .geeker-gallery__cover img { transition: none; } }
+
+&lt;/style&gt;&lt;/head&gt;&lt;body class=&quot;bg-canvas text-ink&quot;&gt;&lt;p class=&quot;geeker-hero-line&quot; hidden&gt;&lt;span data-hero-typed&gt;Зберіть друзів за грою.&lt;/span&gt;&lt;/p&gt;&lt;section id=&quot;gallery&quot; class=&quot;geeker-gallery mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] py-14 md:py-20&quot; aria-labelledby=&quot;gallery-title&quot;&gt;
+  &lt;header class=&quot;geeker-gallery__header&quot;&gt;
+    &lt;div&gt;
+      &lt;p class=&quot;mb-3 text-sm font-semibold text-violet-300&quot;&gt;Добірка клубу&lt;/p&gt;
+      &lt;h2 id=&quot;gallery-title&quot; class=&quot;mb-4 font-heading text-3xl font-bold text-heading md:text-4xl&quot;&gt;Ігри зблизька&lt;/h2&gt;
+      &lt;p&gt;Гортайте добірку та натискайте на обкладинки, щоб роздивитися їх.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;a class=&quot;text-link&quot; href=&quot;https://geeker-lab8.netlify.app/catalog.html&quot;&gt;Перейти до каталогу →&lt;/a&gt;
+  &lt;/header&gt;
+  &lt;div class=&quot;swiper geeker-gallery__swiper&quot;&gt;
+    &lt;div class=&quot;swiper-wrapper&quot; id=&quot;gallery-slides&quot;&gt;
+      &lt;article class=&quot;swiper-slide geeker-gallery__slide&quot;&gt;
+        &lt;a class=&quot;geeker-gallery__cover&quot; href=&quot;https://geeker-lab8.netlify.app/assets/images/games/wingspan.png&quot; data-fancybox=&quot;geeker-covers&quot; data-caption=&quot;Крила&quot; aria-label=&quot;Збільшити обкладинку гри Крила&quot;&gt;
+          &lt;img src=&quot;https://geeker-lab8.netlify.app/assets/images/games/wingspan.png&quot; width=&quot;640&quot; height=&quot;480&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Обкладинка гри Крила&quot;&gt;
+          &lt;span class=&quot;geeker-gallery__zoom&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div class=&quot;geeker-gallery__info&quot;&gt;
+          &lt;p class=&quot;geeker-gallery__tag&quot;&gt;Стратегія&lt;/p&gt;
+          &lt;h3&gt;Крила&lt;/h3&gt;
+          &lt;p&gt;Збирайте птахів і створюйте для них заповідник.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/article&gt;
+      &lt;article class=&quot;swiper-slide geeker-gallery__slide&quot;&gt;
+        &lt;a class=&quot;geeker-gallery__cover&quot; href=&quot;https://geeker-lab8.netlify.app/assets/images/games/dixit.webp&quot; data-fancybox=&quot;geeker-covers&quot; data-caption=&quot;Dixit&quot; aria-label=&quot;Збільшити обкладинку гри Dixit&quot;&gt;
+          &lt;img src=&quot;https://geeker-lab8.netlify.app/assets/images/games/dixit.webp&quot; width=&quot;640&quot; height=&quot;480&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Обкладинка гри Dixit&quot;&gt;
+          &lt;span class=&quot;geeker-gallery__zoom&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div class=&quot;geeker-gallery__info&quot;&gt;
+          &lt;p class=&quot;geeker-gallery__tag&quot;&gt;Асоціації&lt;/p&gt;
+          &lt;h3&gt;Dixit&lt;/h3&gt;
+          &lt;p&gt;Вигадуйте підказки до ілюстрацій і вгадуйте задуми друзів.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/article&gt;
+      &lt;article class=&quot;swiper-slide geeker-gallery__slide&quot;&gt;
+        &lt;a class=&quot;geeker-gallery__cover&quot; href=&quot;https://geeker-lab8.netlify.app/assets/images/games/catan.png&quot; data-fancybox=&quot;geeker-covers&quot; data-caption=&quot;CATAN&quot; aria-label=&quot;Збільшити обкладинку гри CATAN&quot;&gt;
+          &lt;img src=&quot;https://geeker-lab8.netlify.app/assets/images/games/catan.png&quot; width=&quot;640&quot; height=&quot;480&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Обкладинка гри CATAN&quot;&gt;
+          &lt;span class=&quot;geeker-gallery__zoom&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div class=&quot;geeker-gallery__info&quot;&gt;
+          &lt;p class=&quot;geeker-gallery__tag&quot;&gt;Переговори&lt;/p&gt;
+          &lt;h3&gt;CATAN&lt;/h3&gt;
+          &lt;p&gt;Торгуйте ресурсами та будуйте поселення на острові.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/article&gt;
+      &lt;article class=&quot;swiper-slide geeker-gallery__slide&quot;&gt;
+        &lt;a class=&quot;geeker-gallery__cover&quot; href=&quot;https://geeker-lab8.netlify.app/assets/images/games/mysterium.webp&quot; data-fancybox=&quot;geeker-covers&quot; data-caption=&quot;Містеріум&quot; aria-label=&quot;Збільшити обкладинку гри Містеріум&quot;&gt;
+          &lt;img src=&quot;https://geeker-lab8.netlify.app/assets/images/games/mysterium.webp&quot; width=&quot;640&quot; height=&quot;480&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Обкладинка гри Містеріум&quot;&gt;
+          &lt;span class=&quot;geeker-gallery__zoom&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div class=&quot;geeker-gallery__info&quot;&gt;
+          &lt;p class=&quot;geeker-gallery__tag&quot;&gt;Кооперація&lt;/p&gt;
+          &lt;h3&gt;Містеріум&lt;/h3&gt;
+          &lt;p&gt;Розгадайте таємницю разом за підказками привида.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/article&gt;
+      &lt;article class=&quot;swiper-slide geeker-gallery__slide&quot;&gt;
+        &lt;a class=&quot;geeker-gallery__cover&quot; href=&quot;https://geeker-lab8.netlify.app/assets/images/games/harmonies.webp&quot; data-fancybox=&quot;geeker-covers&quot; data-caption=&quot;Harmonies&quot; aria-label=&quot;Збільшити обкладинку гри Harmonies&quot;&gt;
+          &lt;img src=&quot;https://geeker-lab8.netlify.app/assets/images/games/harmonies.webp&quot; width=&quot;640&quot; height=&quot;480&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Обкладинка гри Harmonies&quot;&gt;
+          &lt;span class=&quot;geeker-gallery__zoom&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div class=&quot;geeker-gallery__info&quot;&gt;
+          &lt;p class=&quot;geeker-gallery__tag&quot;&gt;Головоломка&lt;/p&gt;
+          &lt;h3&gt;Harmonies&lt;/h3&gt;
+          &lt;p&gt;Складайте ландшафти й заселяйте їх тваринами.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/article&gt;
+      &lt;article class=&quot;swiper-slide geeker-gallery__slide&quot;&gt;
+        &lt;a class=&quot;geeker-gallery__cover&quot; href=&quot;https://geeker-lab8.netlify.app/assets/images/games/dice-forge.webp&quot; data-fancybox=&quot;geeker-covers&quot; data-caption=&quot;Кузня долі&quot; aria-label=&quot;Збільшити обкладинку гри Кузня долі&quot;&gt;
+          &lt;img src=&quot;https://geeker-lab8.netlify.app/assets/images/games/dice-forge.webp&quot; width=&quot;640&quot; height=&quot;480&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Обкладинка гри Кузня долі&quot;&gt;
+          &lt;span class=&quot;geeker-gallery__zoom&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div class=&quot;geeker-gallery__info&quot;&gt;
+          &lt;p class=&quot;geeker-gallery__tag&quot;&gt;Стратегія&lt;/p&gt;
+          &lt;h3&gt;Кузня долі&lt;/h3&gt;
+          &lt;p&gt;Змінюйте грані кубиків і випробовуйте власну удачу.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/article&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;geeker-gallery__controls&quot; hidden&gt;
+    &lt;button class=&quot;geeker-gallery__arrow&quot; type=&quot;button&quot; data-gallery-prev aria-controls=&quot;gallery-slides&quot; aria-label=&quot;Попередній слайд&quot;&gt;←&lt;/button&gt;
+    &lt;div class=&quot;geeker-gallery__pagination&quot; aria-label=&quot;Вибір слайда&quot;&gt;&lt;/div&gt;
+    &lt;button class=&quot;geeker-gallery__arrow&quot; type=&quot;button&quot; data-gallery-next aria-controls=&quot;gallery-slides&quot; aria-label=&quot;Наступний слайд&quot;&gt;→&lt;/button&gt;
+    &lt;button class=&quot;geeker-gallery__autoplay&quot; type=&quot;button&quot; aria-controls=&quot;gallery-slides&quot; data-gallery-autoplay&gt;Призупинити автопрокрутку&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;script&gt;
+function startPrototype() {
+  const gallery = document.getElementById('gallery');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const carousel = gallery.querySelector('.swiper');
+  const controls = gallery.querySelector('.geeker-gallery__controls');
+  const toggle = gallery.querySelector('[data-gallery-autoplay]');
+  let autoPaused = reducedMotion.matches;
+  let visible = false;
+  let overlayOpen = false;
+  let swiper;
+
+  function updateAutoplay() {
+    if (!swiper) return;
+    const shouldPlay = visible &amp;&amp; !autoPaused &amp;&amp; !overlayOpen;
+    if (shouldPlay &amp;&amp; !swiper.autoplay.running) swiper.autoplay.start();
+    if (!shouldPlay &amp;&amp; swiper.autoplay.running) swiper.autoplay.stop();
+    toggle.textContent = autoPaused ? 'Увімкнути автопрокрутку' : 'Призупинити автопрокрутку';
+  }
+
+  if (typeof Swiper === 'function' &amp;&amp; document.getElementById('swiper-css').sheet) {
+    swiper = new Swiper(carousel, {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      rewind: true,
+      speed: reducedMotion.matches ? 0 : 420,
+      breakpoints: {
+        640: { slidesPerView: 2, spaceBetween: 18 },
+        1024: { slidesPerView: 3, spaceBetween: 22 }
+      },
+      autoplay: { delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true },
+      navigation: {
+        prevEl: gallery.querySelector('[data-gallery-prev]'),
+        nextEl: gallery.querySelector('[data-gallery-next]')
+      },
+      pagination: {
+        el: gallery.querySelector('.geeker-gallery__pagination'),
+        clickable: true
+      },
+      a11y: {
+        containerRoleDescriptionMessage: 'Карусель',
+        itemRoleDescriptionMessage: 'Слайд',
+        prevSlideMessage: 'Попередній слайд',
+        nextSlideMessage: 'Наступний слайд',
+        firstSlideMessage: 'Перший слайд',
+        lastSlideMessage: 'Останній слайд',
+        paginationBulletMessage: 'Перейти до слайда {{index}}'
+      }
+    });
+    controls.hidden = false;
+    updateAutoplay();
+
+    new IntersectionObserver(([entry]) =&gt; {
+      visible = entry.isIntersecting;
+      updateAutoplay();
+    }, { threshold: .35 }).observe(carousel);
+
+    toggle.addEventListener('click', () =&gt; {
+      autoPaused = !autoPaused;
+      updateAutoplay();
+    });
+    gallery.addEventListener('focusin', (event) =&gt; {
+      if (event.target !== toggle) {
+        autoPaused = true;
+        updateAutoplay();
+      }
+    });
+    reducedMotion.addEventListener('change', () =&gt; {
+      swiper.params.speed = reducedMotion.matches ? 0 : 420;
+      if (reducedMotion.matches) autoPaused = true;
+      updateAutoplay();
+    });
+  }
+
+  if (typeof Fancybox !== 'undefined' &amp;&amp; document.getElementById('fancybox-css').sheet) {
+    Fancybox.bind(gallery, '[data-fancybox=&quot;geeker-covers&quot;]', {
+      Carousel: { transition: reducedMotion.matches ? false : 'slide' },
+      Images: { zoom: !reducedMotion.matches },
+      showClass: reducedMotion.matches ? false : 'f-fadeIn',
+      hideClass: reducedMotion.matches ? false : 'f-fadeOut',
+      contentClick: 'toggleZoom',
+      l10n: {
+        MODAL: 'Обкладинки настільних ігор', CLOSE: 'Закрити',
+        NEXT: 'Наступна', PREV: 'Попередня', TOGGLE_ZOOM: 'Змінити масштаб',
+        ZOOM_IN: 'Збільшити', ZOOM_OUT: 'Зменшити', TOGGLE_THUMBS: 'Мініатюри',
+        ITERATE_ZOOM: 'Змінити масштаб', TOGGLE_SLIDESHOW: 'Автопоказ'
+      },
+      on: {
+        init: () =&gt; { overlayOpen = true; updateAutoplay(); },
+        destroy: () =&gt; { overlayOpen = false; updateAutoplay(); }
+      }
+    });
+  }
+
+  const typedLine = document.querySelector('[data-hero-typed]');
+  if (!reducedMotion.matches &amp;&amp; typeof Typed === 'function') {
+    const text = typedLine.textContent;
+    typedLine.textContent = '';
+    new Typed(typedLine, { strings: [text], typeSpeed: 34, startDelay: 300, loop: false, showCursor: false });
+  }
+}
+if (document.readyState === 'complete') startPrototype();
+else window.addEventListener('load', startPrototype, { once: true });
+
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;">
+      <input type="hidden" name="project[files][gallery.css]" value=".geeker-gallery { scroll-margin-top: 6rem; min-width: 0; }
+.geeker-gallery__header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: .8rem 2rem; margin-bottom: 1.75rem; }
+.geeker-gallery__swiper { min-width: 0; padding: .25rem; }
+.geeker-gallery__swiper:not(.swiper-initialized) .swiper-wrapper {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1rem;
+}
+.geeker-gallery__slide { height: auto; overflow: hidden; border: 1px solid #624780; border-radius: 1rem; background: #211633; }
+.geeker-gallery__cover {
+  position: relative; display: grid; place-items: center; padding: clamp(.75rem, 4vw, 1.4rem);
+  background: radial-gradient(ellipse at 50% 100%, #6b4784, #3b2855 70%);
+}
+.geeker-gallery__cover img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; transition: transform .25s ease; }
+.geeker-gallery__cover:hover img { transform: scale(1.04); }
+.geeker-gallery__cover:focus-visible { outline: 2px solid #e8c9ff; outline-offset: -4px; }
+.geeker-gallery__zoom {
+  position: absolute; bottom: .7rem; right: .7rem; display: grid; place-items: center;
+  width: 2rem; height: 2rem; border-radius: 50%; background: #201333; color: #fcf6ff;
+}
+.geeker-gallery__info { padding: 1rem 1.15rem 1.2rem; color: #e3d6eb; }
+.geeker-gallery__info h3 { margin: .3rem 0; color: #fcf6ff; font-weight: 700; font-size: 1.25rem; }
+.geeker-gallery__tag { color: #e0c3ff; font-size: .8rem; font-weight: 700; }
+.geeker-gallery__controls:not([hidden]) { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .6rem; margin-top: 1rem; }
+.geeker-gallery__arrow, .geeker-gallery__autoplay {
+  min-height: 2.75rem; min-width: 2.75rem; padding: .4rem .65rem;
+  border: 1px solid #80649b; border-radius: .65rem; color: #fcf6ff; background: #241737;
+}
+.geeker-gallery__arrow:hover, .geeker-gallery__autoplay:hover { background: #472862; }
+.geeker-gallery__controls :focus-visible { outline: 2px solid #e8c9ff; outline-offset: 2px; }
+.geeker-gallery__controls .geeker-gallery__pagination { display: flex; align-items: center; width: auto; }
+.geeker-gallery__pagination .swiper-pagination-bullet {
+  display: grid; place-items: center; width: 1.75rem; height: 2.75rem; background: none; opacity: 1;
+}
+.geeker-gallery__pagination .swiper-pagination-bullet::before {
+  content: &quot;&quot;; width: .62rem; height: .62rem; border-radius: 50%; border: 1px solid #cda8ff;
+}
+.geeker-gallery__pagination .swiper-pagination-bullet-active::before { background: #cda8ff; }
+.geeker-hero-line { display: grid; margin-bottom: .65rem; color: #e5caff; font-weight: 700; }
+.geeker-hero-line &gt; [aria-hidden=&quot;true&quot;] { grid-area: 1 / 1; }
+.geeker-hero-line::before { content: &quot;Зберіть друзів за грою.&quot;; grid-area: 1 / 1; visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { .geeker-gallery__cover img { transition: none; } }
+">
+      <input type="hidden" name="project[files][gallery.js]" value="function startPrototype() {
+  const gallery = document.getElementById('gallery');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const carousel = gallery.querySelector('.swiper');
+  const controls = gallery.querySelector('.geeker-gallery__controls');
+  const toggle = gallery.querySelector('[data-gallery-autoplay]');
+  let autoPaused = reducedMotion.matches;
+  let visible = false;
+  let overlayOpen = false;
+  let swiper;
+
+  function updateAutoplay() {
+    if (!swiper) return;
+    const shouldPlay = visible &amp;&amp; !autoPaused &amp;&amp; !overlayOpen;
+    if (shouldPlay &amp;&amp; !swiper.autoplay.running) swiper.autoplay.start();
+    if (!shouldPlay &amp;&amp; swiper.autoplay.running) swiper.autoplay.stop();
+    toggle.textContent = autoPaused ? 'Увімкнути автопрокрутку' : 'Призупинити автопрокрутку';
+  }
+
+  if (typeof Swiper === 'function' &amp;&amp; document.getElementById('swiper-css').sheet) {
+    swiper = new Swiper(carousel, {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      rewind: true,
+      speed: reducedMotion.matches ? 0 : 420,
+      breakpoints: {
+        640: { slidesPerView: 2, spaceBetween: 18 },
+        1024: { slidesPerView: 3, spaceBetween: 22 }
+      },
+      autoplay: { delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true },
+      navigation: {
+        prevEl: gallery.querySelector('[data-gallery-prev]'),
+        nextEl: gallery.querySelector('[data-gallery-next]')
+      },
+      pagination: {
+        el: gallery.querySelector('.geeker-gallery__pagination'),
+        clickable: true
+      },
+      a11y: {
+        containerRoleDescriptionMessage: 'Карусель',
+        itemRoleDescriptionMessage: 'Слайд',
+        prevSlideMessage: 'Попередній слайд',
+        nextSlideMessage: 'Наступний слайд',
+        firstSlideMessage: 'Перший слайд',
+        lastSlideMessage: 'Останній слайд',
+        paginationBulletMessage: 'Перейти до слайда {{index}}'
+      }
+    });
+    controls.hidden = false;
+    updateAutoplay();
+
+    new IntersectionObserver(([entry]) =&gt; {
+      visible = entry.isIntersecting;
+      updateAutoplay();
+    }, { threshold: .35 }).observe(carousel);
+
+    toggle.addEventListener('click', () =&gt; {
+      autoPaused = !autoPaused;
+      updateAutoplay();
+    });
+    gallery.addEventListener('focusin', (event) =&gt; {
+      if (event.target !== toggle) {
+        autoPaused = true;
+        updateAutoplay();
+      }
+    });
+    reducedMotion.addEventListener('change', () =&gt; {
+      swiper.params.speed = reducedMotion.matches ? 0 : 420;
+      if (reducedMotion.matches) autoPaused = true;
+      updateAutoplay();
+    });
+  }
+
+  if (typeof Fancybox !== 'undefined' &amp;&amp; document.getElementById('fancybox-css').sheet) {
+    Fancybox.bind(gallery, '[data-fancybox=&quot;geeker-covers&quot;]', {
+      Carousel: { transition: reducedMotion.matches ? false : 'slide' },
+      Images: { zoom: !reducedMotion.matches },
+      showClass: reducedMotion.matches ? false : 'f-fadeIn',
+      hideClass: reducedMotion.matches ? false : 'f-fadeOut',
+      contentClick: 'toggleZoom',
+      l10n: {
+        MODAL: 'Обкладинки настільних ігор', CLOSE: 'Закрити',
+        NEXT: 'Наступна', PREV: 'Попередня', TOGGLE_ZOOM: 'Змінити масштаб',
+        ZOOM_IN: 'Збільшити', ZOOM_OUT: 'Зменшити', TOGGLE_THUMBS: 'Мініатюри',
+        ITERATE_ZOOM: 'Змінити масштаб', TOGGLE_SLIDESHOW: 'Автопоказ'
+      },
+      on: {
+        init: () =&gt; { overlayOpen = true; updateAutoplay(); },
+        destroy: () =&gt; { overlayOpen = false; updateAutoplay(); }
+      }
+    });
+  }
+
+  const typedLine = document.querySelector('[data-hero-typed]');
+  if (!reducedMotion.matches &amp;&amp; typeof Typed === 'function') {
+    const text = typedLine.textContent;
+    typedLine.textContent = '';
+    new Typed(typedLine, { strings: [text], typeSpeed: 34, startDelay: 300, loop: false, showCursor: false });
+  }
+}
+if (document.readyState === 'complete') startPrototype();
+else window.addEventListener('load', startPrototype, { once: true });
+">
+      <input type="hidden" name="project[files][index.js]" value="// This preview runs the code in index.html without a build step.
+">
+      <button type="submit" class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-heading focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-focus">Відкрити в StackBlitz</button>
+    </form>
+  </main>
+</body>
+</html>
