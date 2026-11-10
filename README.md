@@ -20,3 +20,4 @@
 - [Інтерактивна галерея](https://tvelv.github.io/geeker-lab8/#gallery). Swiper керує каруселлю, Fancybox відкриває обкладинки, Typed.js анімує короткий текст у банері.
 - [Гілка прототипу](https://github.com/tvelv/geeker-lab8/tree/lab10-stackblitz) та [відкриття в StackBlitz](https://tvelv.github.io/geeker-lab8/lab10-preview.html).
 - [Публічна копія на Netlify](https://geeker-lab8.netlify.app/) оновлюється з гілки main.
+- [Публічна копія на Vercel](https://geeker-lab8.vercel.app/) оновлюється з гілки main.
