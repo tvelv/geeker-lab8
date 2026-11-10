@@ -300,15 +300,16 @@ html { scroll-behavior: auto; scroll-padding-top: 2rem; }
 .geeker-landing #benefits article > span {
   display: inline-grid;
   place-items: center;
-  min-width: 3rem;
-  min-height: 3rem;
+  min-width: clamp(4.25rem, 8vw, 5rem);
+  min-height: clamp(4.25rem, 8vw, 5rem);
   margin-bottom: 1.25rem;
   border: 1px solid rgb(var(--card-accent) / .26);
   border-radius: .85rem;
   background: rgb(var(--card-accent) / .1);
   color: rgb(var(--card-accent));
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1;
 }
 
 .geeker-landing #services article::before {
