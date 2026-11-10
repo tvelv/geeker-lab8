@@ -1,0 +1,39 @@
+.feedback-section { scroll-margin-top: 6rem; }
+.feedback-heading, .feedback-panel { max-width: 47rem; margin-inline: auto; }
+.feedback-heading { margin-bottom: 1.5rem; }
+.feedback-fields { min-width: 0; }
+.feedback-wide { grid-column: 1 / -1; }
+.feedback-label { display: block; margin-bottom: .5rem; color: #fcf6ff; font-weight: 600; }
+.feedback-input {
+  display: block; width: 100%; min-height: 3rem; padding: .65rem .8rem;
+  border: 1px solid #80649b; border-radius: .65rem; background: #171025;
+  color: #fcf6ff; font-size: 1rem; transition: border-color .2s;
+}
+.feedback-input::placeholder { color: #b8a8c9; }
+textarea.feedback-input { resize: vertical; }
+.feedback-input:focus, .feedback-consent input:focus-visible, .feedback-dialog button:focus-visible {
+  outline: 2px solid #dfbdff; outline-offset: 3px;
+}
+.feedback-input[aria-invalid="true"], .feedback-consent input[aria-invalid="true"] { border-color: #ff9fae; }
+.feedback-consent input[aria-invalid="true"] { outline: 2px solid #ff9fae; outline-offset: 3px; }
+.feedback-consent input[aria-invalid="true"]:focus-visible { outline-color: #dfbdff; }
+.feedback-input[data-valid] { border-color: #82deb1; }
+.feedback-hint, .feedback-error { margin-top: .45rem; font-size: .875rem; }
+.feedback-hint { color: #d7c9e4; }
+.feedback-error { color: #ffafbb; }
+.feedback-error:empty { margin: 0; }
+.feedback-consent { display: flex; align-items: flex-start; gap: .7rem; cursor: pointer; min-height: 2.75rem; color: #fcf6ff; }
+.feedback-consent input { flex: 0 0 auto; width: 1.25rem; height: 1.25rem; margin-top: .15rem; appearance: auto; accent-color: #bf94ff; }
+.feedback-submit { width: 100%; }
+.feedback-dialog {
+  position: fixed; inset: 0; margin: auto; width: min(28rem, calc(100% - 2rem)); max-height: calc(100% - 2rem);
+  overflow: auto; padding: clamp(1.3rem, 5vw, 2rem); border: 1px solid #80649b;
+  border-radius: 1rem; color: #f4eafa; background: #241737;
+}
+.feedback-dialog::backdrop { background: rgb(10 6 20 / .82); }
+.feedback-success-mark {
+  display: grid; place-items: center; width: 2.6rem; height: 2.6rem; margin-bottom: 1rem;
+  color: #a1f1c7; background: #2c473c; border-radius: 50%; font-weight: 700;
+}
+@media (min-width: 768px) { .feedback-submit { width: auto; } }
+@media (prefers-reduced-motion: reduce) { .feedback-input { transition: none; } }

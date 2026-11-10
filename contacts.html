@@ -10,7 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
     <script src="js/main.js?v=lab7-ui" defer></script>
-  <link rel="stylesheet" href="css/tailwind.css?v=cards-4"><link rel="stylesheet" href="css/custom-styles.css?v=lab7-ui"></head>
+  <link rel="stylesheet" href="css/tailwind.css?v=cards-4"><link rel="stylesheet" href="css/custom-styles.css?v=lab7-ui">
+    <link rel="stylesheet" href="css/feedback.css">
+    <script src="js/feedback.js" defer></script>
+  </head>
   <body class="bg-canvas font-body text-base leading-relaxed text-ink">
     <a class="skip-link fixed -top-24 left-4 z-50 rounded-lg bg-heading p-4 text-canvas focus:top-4 transition-colors hover:text-heading" href="#main">Перейти до вмісту</a>
     <!-- Header and navigation are landmarks, not anonymous div wrappers. -->
@@ -57,6 +60,7 @@
         </nav>
         <h1 class="mb-4 font-heading text-[clamp(2rem,8vw,3.25rem)] font-bold leading-tight tracking-tight text-heading md:text-[clamp(2.25rem,3.5vw,3.25rem)]">Контакти та локація</h1>
         <p class="mb-4">Усе, що варто погодити перед першою зустріччю.</p>
+        <a class="text-link" href="#feedback">Написати Geeker ↓</a>
       </header>
       <section class="section section--compact container py-14 md:py-20 !py-12 mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)]" aria-labelledby="find-title">
         <h2 id="find-title" class="mb-4 font-heading text-[clamp(1.7rem,3vw,2.25rem)] font-bold leading-tight tracking-tight text-heading">Як нас знайти</h2>
@@ -85,6 +89,61 @@
           <li>Повідомте кількість гостей і побажання до гри.</li>
           <li>Погодьте вартість, тривалість та умови відвідування.</li>
         </ul>
+      </section>
+          <section id="feedback" class="feedback-section mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] py-14 md:py-20" aria-labelledby="feedback-title">
+        <header class="feedback-heading">
+          <p class="mb-2 text-sm font-semibold text-violet-300">На зв’язку</p>
+          <h2 id="feedback-title" class="mb-4 font-heading text-3xl font-bold text-heading md:text-4xl">Напишіть Geeker</h2>
+          <p id="feedback-note">Запитайте про ігри, зустрічі чи оренду. У демонстраційній формі дані перевіряються в браузері й не передаються клубу.</p>
+        </header>
+        <form id="feedback-form" class="feedback-panel rounded-2xl border border-line bg-surface p-6 sm:p-8" aria-describedby="feedback-note">
+          <fieldset id="feedback-fields" class="feedback-fields grid grid-cols-1 gap-6 md:grid-cols-2" disabled>
+            <legend class="sr-only">Зворотний зв’язок. Усі поля обов’язкові.</legend>
+            <div>
+              <label class="feedback-label" for="feedback-name">Ім’я</label>
+              <input class="feedback-input" id="feedback-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="70" aria-describedby="feedback-name-error">
+              <p class="feedback-error" id="feedback-name-error" hidden></p>
+            </div>
+            <div>
+              <label class="feedback-label" for="feedback-email">Електронна пошта</label>
+              <input class="feedback-input" id="feedback-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="name@example.com" aria-describedby="feedback-email-error">
+              <p class="feedback-error" id="feedback-email-error" hidden></p>
+            </div>
+            <div class="feedback-wide">
+              <label class="feedback-label" for="feedback-phone">Телефон</label>
+              <input class="feedback-input" id="feedback-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="\+380[0-9]{9}" maxlength="25" placeholder="+380" aria-describedby="feedback-phone-hint feedback-phone-error">
+              <p class="feedback-hint" id="feedback-phone-hint">Наприклад, +380501234567 або 050 123 45 67.</p>
+              <p class="feedback-error" id="feedback-phone-error" hidden></p>
+            </div>
+            <div class="feedback-wide">
+              <label class="feedback-label" for="feedback-message">Повідомлення</label>
+              <textarea class="feedback-input" id="feedback-message" name="message" rows="4" required minlength="10" maxlength="1000" aria-describedby="feedback-message-hint feedback-message-error"></textarea>
+              <p class="feedback-hint" id="feedback-message-hint">Від 10 до 1000 символів.</p>
+              <p class="feedback-error" id="feedback-message-error" hidden></p>
+            </div>
+            <div class="feedback-wide">
+              <label class="feedback-consent" for="feedback-consent">
+                <input id="feedback-consent" name="consent" type="checkbox" required aria-describedby="feedback-policy feedback-consent-error">
+                <span>Погоджуюся з умовами використання даних у демонстраційній формі.</span>
+              </label>
+              <p class="feedback-hint" id="feedback-policy">Сайт не передає і не зберігає введені у форму дані.</p>
+              <p class="feedback-error" id="feedback-consent-error" hidden></p>
+            </div>
+            <div class="feedback-wide">
+              <button type="submit" class="feedback-submit inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-heading transition-colors hover:bg-violet-600 active:bg-violet-900 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-focus">Надіслати повідомлення</button>
+              <p id="feedback-status" class="feedback-error" role="status"></p>
+            </div>
+          </fieldset>
+          <noscript><p class="feedback-hint">Щоб перевірити дані форми, увімкніть JavaScript.</p></noscript>
+        </form>
+        <dialog class="feedback-dialog" id="feedback-success" aria-labelledby="feedback-success-title" aria-describedby="feedback-success-copy">
+          <form method="dialog">
+            <span class="feedback-success-mark" aria-hidden="true">✓</span>
+            <h2 id="feedback-success-title" class="mb-4 font-heading text-2xl font-bold text-heading">Дані перевірено</h2>
+            <p id="feedback-success-copy" class="mb-6">Усі поля пройшли перевірку. Це демонстрація успішного надсилання. Повідомлення не було передано.</p>
+            <button type="submit" class="feedback-submit inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-heading focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-focus" autofocus>Готово</button>
+          </form>
+        </dialog>
       </section>
     </main>
     <footer class="lab7-footer">
