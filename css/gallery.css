@@ -26,7 +26,7 @@
 }
 .geeker-gallery__arrow:hover, .geeker-gallery__autoplay:hover { background: #472862; }
 .geeker-gallery__controls :focus-visible { outline: 2px solid #e8c9ff; outline-offset: 2px; }
-.geeker-gallery__pagination { display: flex; align-items: center; }
+.geeker-gallery__controls .geeker-gallery__pagination { display: flex; align-items: center; width: auto; }
 .geeker-gallery__pagination .swiper-pagination-bullet {
   display: grid; place-items: center; width: 1.75rem; height: 2.75rem; background: none; opacity: 1;
 }
