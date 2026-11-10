@@ -1,0 +1,40 @@
+.geeker-gallery { scroll-margin-top: 6rem; min-width: 0; }
+.geeker-gallery__header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: .8rem 2rem; margin-bottom: 1.75rem; }
+.geeker-gallery__swiper { min-width: 0; padding: .25rem; }
+.geeker-gallery__swiper:not(.swiper-initialized) .swiper-wrapper {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1rem;
+}
+.geeker-gallery__slide { height: auto; overflow: hidden; border: 1px solid #624780; border-radius: 1rem; background: #211633; }
+.geeker-gallery__cover {
+  position: relative; display: grid; place-items: center; padding: clamp(.75rem, 4vw, 1.4rem);
+  background: radial-gradient(ellipse at 50% 100%, #6b4784, #3b2855 70%);
+}
+.geeker-gallery__cover img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; transition: transform .25s ease; }
+.geeker-gallery__cover:hover img { transform: scale(1.04); }
+.geeker-gallery__cover:focus-visible { outline: 2px solid #e8c9ff; outline-offset: -4px; }
+.geeker-gallery__zoom {
+  position: absolute; bottom: .7rem; right: .7rem; display: grid; place-items: center;
+  width: 2rem; height: 2rem; border-radius: 50%; background: #201333; color: #fcf6ff;
+}
+.geeker-gallery__info { padding: 1rem 1.15rem 1.2rem; color: #e3d6eb; }
+.geeker-gallery__info h3 { margin: .3rem 0; color: #fcf6ff; font-weight: 700; font-size: 1.25rem; }
+.geeker-gallery__tag { color: #e0c3ff; font-size: .8rem; font-weight: 700; }
+.geeker-gallery__controls:not([hidden]) { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .6rem; margin-top: 1rem; }
+.geeker-gallery__arrow, .geeker-gallery__autoplay {
+  min-height: 2.75rem; min-width: 2.75rem; padding: .4rem .65rem;
+  border: 1px solid #80649b; border-radius: .65rem; color: #fcf6ff; background: #241737;
+}
+.geeker-gallery__arrow:hover, .geeker-gallery__autoplay:hover { background: #472862; }
+.geeker-gallery__controls :focus-visible { outline: 2px solid #e8c9ff; outline-offset: 2px; }
+.geeker-gallery__pagination { display: flex; align-items: center; }
+.geeker-gallery__pagination .swiper-pagination-bullet {
+  display: grid; place-items: center; width: 1.75rem; height: 2.75rem; background: none; opacity: 1;
+}
+.geeker-gallery__pagination .swiper-pagination-bullet::before {
+  content: ""; width: .62rem; height: .62rem; border-radius: 50%; border: 1px solid #cda8ff;
+}
+.geeker-gallery__pagination .swiper-pagination-bullet-active::before { background: #cda8ff; }
+.geeker-hero-line { display: grid; margin-bottom: .65rem; color: #e5caff; font-weight: 700; }
+.geeker-hero-line > [aria-hidden="true"] { grid-area: 1 / 1; }
+.geeker-hero-line::before { content: "Зберіть друзів за грою."; grid-area: 1 / 1; visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { .geeker-gallery__cover img { transition: none; } }

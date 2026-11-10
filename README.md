@@ -13,3 +13,10 @@
 - GitHub Pages: Settings → Pages → Deploy from a branch → main → / (root).
 - Netlify: Import an existing project → GitHub → цей репозиторій. Папку публікації задає netlify.toml; окрема збірка не потрібна.
 - [Попередня версія ЛР №7 на Netlify](https://lab7sitesss.netlify.app/) зберігається окремо.
+
+## Лабораторні роботи 9 і 10
+
+- [Форма зворотного зв’язку](https://tvelv.github.io/geeker-lab8/contacts.html#feedback). Перевірка полів і діалог успіху працюють у браузері. Дані форми не передаються.
+- [Інтерактивна галерея](https://tvelv.github.io/geeker-lab8/#gallery). Swiper керує каруселлю, Fancybox відкриває обкладинки, Typed.js анімує короткий текст у банері.
+- [Гілка прототипу](https://github.com/tvelv/geeker-lab8/tree/lab10-stackblitz) та [відкриття в StackBlitz](https://stackblitz.com/github/tvelv/geeker-lab8/tree/lab10-stackblitz?file=js%2Fgallery.js&initialPath=%2F%23gallery).
+- [Публічна копія на Netlify](https://geeker-lab8.netlify.app/) оновлюється з гілки main.
