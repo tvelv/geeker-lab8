@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="uk">
   <head>
-    <script src="js/theme.js"></script>
+    <style media="(prefers-reduced-motion: no-preference)">@view-transition { navigation: auto; }</style>
+    <script src="js/theme.js?v=motion"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Клуб настільних ігор. Geeker - настільні ігри, зустрічі з друзями та ігрові події.">
@@ -16,13 +17,13 @@
 <script src="js/landing.js?v=lab7-hero" defer></script>
     <link id="swiper-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css">
     <link id="fancybox-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css">
-    <link rel="stylesheet" href="css/gallery.css?v=controls">
+    <link rel="stylesheet" href="css/gallery.css?v=videos">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
-    <script src="js/gallery.js" defer></script>
+    <script src="js/gallery.js?v=videos" defer></script>
 
-    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/theme.css?v=motion">
   </head>
   <body class="geeker-landing bg-canvas font-body leading-relaxed text-ink">
 <a class="fixed -top-24 left-4 z-50 rounded-lg bg-heading p-4 text-canvas focus:top-4" href="#main">Перейти до вмісту</a>
@@ -44,8 +45,14 @@
     </nav>
     <div class="geeker-header-actions">
       <button class="geeker-theme-toggle" type="button" role="switch" aria-label="Світла тема" aria-checked="false" data-theme-toggle hidden>
-        <span class="theme-sun" aria-hidden="true">☀</span>
-        <span class="theme-moon" aria-hidden="true">☾</span>
+        <svg class="theme-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+          <path d="M12 2.75v2.1m0 14.3v2.1M2.75 12h2.1m14.3 0h2.1M5.45 5.45l1.5 1.5m10.1 10.1 1.5 1.5m0-13.1-1.5 1.5M6.95 17.05l-1.5 1.5" stroke="currentColor" stroke-width="1.85" stroke-linecap="round"/>
+        </svg>
+        <svg class="theme-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M14.5 3.7A8.5 8.5 0 1 0 20 16.6a7.3 7.3 0 0 1-5.5-12.9Z" fill="currentColor"/>
+          <path d="M18.65 4.4v3.9m-1.95-1.95h3.9" stroke="currentColor" stroke-width="1.65" stroke-linecap="round"/>
+        </svg>
       </button>
     <details class="lab7-menu">
       <summary aria-label="Меню навігації">
@@ -297,9 +304,95 @@
 </ol>
 </div></section>
 <!-- Media integration: responsive external YouTube player with accessible title and lazy loading. -->
-<section id="media" aria-labelledby="media-title" class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] pb-14 md:pb-20"><h2 id="media-title" class="mb-4 font-heading text-3xl font-bold leading-tight text-heading md:text-4xl">Зазирніть у світ настільних ігор</h2>
-<p class="mb-8 max-w-2xl">Почніть із CATAN. Видавництво ROZUM пояснює правила гри українською.</p>
-<iframe class="aspect-video h-auto w-full rounded-2xl border border-line bg-surface shadow-lg" width="960" height="540" src="https://www.youtube-nocookie.com/embed/0LR_6dsK6hg?rel=0" title="Правила гри CATAN українською від ROZUM" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe><p class="mt-4 text-sm"><a class="rounded-lg px-3 py-3 transition-colors hover:bg-raised hover:text-heading focus-visible:outline-3 focus-visible:outline-focus inline-flex text-violet-200" href="https://www.youtube.com/watch?v=0LR_6dsK6hg" target="_blank" rel="noopener noreferrer">Відкрити відео на YouTube ↗</a></p></section>
+<section id="media" class="geeker-video-section mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] pb-14 md:pb-20" aria-labelledby="media-title" data-video-carousel>
+    <header class="geeker-gallery__header">
+      <div>
+        <h2 id="media-title" class="mb-4 font-heading text-3xl font-bold leading-tight text-heading md:text-4xl">Відео про настільні ігри</h2>
+        <p>Огляди й правила українською.</p>
+      </div>
+    </header>
+    <div class="swiper geeker-gallery__swiper">
+      <div class="swiper-wrapper">
+        <article class="swiper-slide geeker-video-card">
+          <a href="https://www.youtube.com/watch?v=0LR_6dsK6hg" target="_blank" rel="noopener noreferrer" data-game-video="0LR_6dsK6hg" data-video-title="CATAN">
+            <div class="geeker-video-card__thumb">
+              <img src="https://i.ytimg.com/vi/0LR_6dsK6hg/mqdefault.jpg" width="320" height="180" alt="" loading="lazy" decoding="async">
+              <span class="geeker-video-card__play" aria-hidden="true"></span>
+            </div>
+            <div class="geeker-video-card__info">
+              <h3>CATAN</h3>
+              <p>Огляд і правила · ROZUM</p>
+            </div>
+          </a>
+        </article>
+        <article class="swiper-slide geeker-video-card">
+          <a href="https://www.youtube.com/watch?v=1V8iR3OuHV8" target="_blank" rel="noopener noreferrer" data-game-video="1V8iR3OuHV8" data-video-title="Крила">
+            <div class="geeker-video-card__thumb">
+              <img src="https://i.ytimg.com/vi/1V8iR3OuHV8/mqdefault.jpg" width="320" height="180" alt="" loading="lazy" decoding="async">
+              <span class="geeker-video-card__play" aria-hidden="true"></span>
+            </div>
+            <div class="geeker-video-card__info">
+              <h3>Крила</h3>
+              <p>Огляд і правила · Вітос з настілками</p>
+            </div>
+          </a>
+        </article>
+        <article class="swiper-slide geeker-video-card">
+          <a href="https://www.youtube.com/watch?v=YnLv54wmhxU" target="_blank" rel="noopener noreferrer" data-game-video="YnLv54wmhxU" data-video-title="Dixit">
+            <div class="geeker-video-card__thumb">
+              <img src="https://i.ytimg.com/vi/YnLv54wmhxU/mqdefault.jpg" width="320" height="180" alt="" loading="lazy" decoding="async">
+              <span class="geeker-video-card__play" aria-hidden="true"></span>
+            </div>
+            <div class="geeker-video-card__info">
+              <h3>Dixit</h3>
+              <p>Огляд · RetroMagaz</p>
+            </div>
+          </a>
+        </article>
+        <article class="swiper-slide geeker-video-card">
+          <a href="https://www.youtube.com/watch?v=ZLe8e6Xa_MI" target="_blank" rel="noopener noreferrer" data-game-video="ZLe8e6Xa_MI" data-video-title="Містеріум">
+            <div class="geeker-video-card__thumb">
+              <img src="https://i.ytimg.com/vi/ZLe8e6Xa_MI/mqdefault.jpg" width="320" height="180" alt="" loading="lazy" decoding="async">
+              <span class="geeker-video-card__play" aria-hidden="true"></span>
+            </div>
+            <div class="geeker-video-card__info">
+              <h3>Містеріум</h3>
+              <p>Правила гри · IGAMES</p>
+            </div>
+          </a>
+        </article>
+        <article class="swiper-slide geeker-video-card">
+          <a href="https://www.youtube.com/watch?v=WbJQqok2mb0" target="_blank" rel="noopener noreferrer" data-game-video="WbJQqok2mb0" data-video-title="Гармонія">
+            <div class="geeker-video-card__thumb">
+              <img src="https://i.ytimg.com/vi/WbJQqok2mb0/mqdefault.jpg" width="320" height="180" alt="" loading="lazy" decoding="async">
+              <span class="geeker-video-card__play" aria-hidden="true"></span>
+            </div>
+            <div class="geeker-video-card__info">
+              <h3>Гармонія</h3>
+              <p>Огляд · Настільні хроніки</p>
+            </div>
+          </a>
+        </article>
+        <article class="swiper-slide geeker-video-card">
+          <a href="https://www.youtube.com/watch?v=-KTCAErOi04" target="_blank" rel="noopener noreferrer" data-game-video="-KTCAErOi04" data-video-title="Коса">
+            <div class="geeker-video-card__thumb">
+              <img src="https://i.ytimg.com/vi/-KTCAErOi04/mqdefault.jpg" width="320" height="180" alt="" loading="lazy" decoding="async">
+              <span class="geeker-video-card__play" aria-hidden="true"></span>
+            </div>
+            <div class="geeker-video-card__info">
+              <h3>Коса</h3>
+              <p>Огляд і правила · Geekach Games</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+    <div class="geeker-gallery__controls" hidden>
+      <button class="geeker-gallery__arrow" type="button" data-gallery-prev aria-label="Попереднє відео">←</button>
+      <div class="geeker-gallery__pagination" aria-label="Вибір відео"></div>
+      <button class="geeker-gallery__arrow" type="button" data-gallery-next aria-label="Наступне відео">→</button>
+    </div>
+  </section>
 <section id="contacts" aria-labelledby="contacts-title" class="border-y border-line bg-surface py-14 md:py-20"><div class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)]">
 <h2 id="contacts-title" class="mb-4 font-heading text-3xl font-bold leading-tight text-heading md:text-4xl">Підготуйтеся до зустрічі</h2>
 <p class="mb-8 max-w-2xl">Точну адресу Geeker ще не надано. Карта нижче показує центр Львова як демонстрацію інтеграції, а не місце розташування клубу.</p>

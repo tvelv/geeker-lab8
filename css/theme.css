@@ -21,7 +21,7 @@
   transition: background-color .18s ease, border-color .18s ease;
 }
 .geeker-theme-toggle:hover { background: #362651; }
-.geeker-theme-toggle span { grid-area: 1 / 1; font-size: 1.4rem; line-height: 1; }
+.geeker-theme-toggle svg { grid-area: 1 / 1; width: 24px; height: 24px; }
 .geeker-theme-toggle .theme-moon,
 :root[data-theme="light"] .geeker-theme-toggle .theme-sun { display: none; }
 :root[data-theme="light"] .geeker-theme-toggle .theme-moon { display: block; }
@@ -242,3 +242,46 @@
 :root[data-theme="light"] .feedback-input[data-valid] { border-color: var(--theme-success); }
 :root[data-theme="light"] .feedback-consent input { accent-color: var(--color-primary); }
 :root[data-theme="light"] .feedback-success-mark { color: var(--theme-success); background: #e2f3e9; }
+
+@media (prefers-reduced-motion: no-preference) {
+  :root:not(.geeker-theme-wave) .lab7-header { view-transition-name: geeker-header; }
+  ::view-transition-group(geeker-header) { z-index: 1; }
+  ::view-transition-old(geeker-header) { animation: none; opacity: 0; }
+  ::view-transition-new(geeker-header) { animation: none; }
+  :root:not(.geeker-theme-wave)::view-transition-old(root) {
+    animation: geeker-page-out .18s ease both;
+  }
+  :root:not(.geeker-theme-wave)::view-transition-new(root) {
+    animation: geeker-page-in .25s ease-out both;
+  }
+
+  :root.geeker-theme-wave::view-transition-old(root) { animation: none; mix-blend-mode: normal; }
+  :root.geeker-theme-wave::view-transition-new(root) {
+    z-index: 1;
+    mix-blend-mode: normal;
+    animation: none;
+  }
+
+  @keyframes geeker-page-out { to { opacity: 0; } }
+  @keyframes geeker-page-in {
+    from { opacity: 0; transform: translateY(7px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+.about-promo { min-width: 0; margin: 0; }
+.about-promo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+  background: #171025;
+}
+.about-promo figcaption { margin-top: .65rem; color: var(--color-muted); font-size: .875rem; }
+
+:root[data-theme="light"] :is(.breadcrumb, .about-path) [aria-current="page"] {
+  color: var(--color-heading);
+  text-decoration: none;
+}

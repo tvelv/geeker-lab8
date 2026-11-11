@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.textContent = autoPaused ? 'Увімкнути автопрокрутку' : 'Призупинити автопрокрутку';
   }
 
-  if (typeof Swiper === 'function' && document.getElementById('swiper-css').sheet) {
-    swiper = new Swiper(carousel, {
+  function carouselOptions(section, labels) {
+    return {
       slidesPerView: 1,
       spaceBetween: 16,
       rewind: true,
@@ -27,25 +27,42 @@ document.addEventListener('DOMContentLoaded', () => {
         640: { slidesPerView: 2, spaceBetween: 18 },
         1024: { slidesPerView: 3, spaceBetween: 22 }
       },
-      autoplay: { delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true },
       navigation: {
-        prevEl: gallery.querySelector('[data-gallery-prev]'),
-        nextEl: gallery.querySelector('[data-gallery-next]')
+        prevEl: section.querySelector('[data-gallery-prev]'),
+        nextEl: section.querySelector('[data-gallery-next]')
       },
       pagination: {
-        el: gallery.querySelector('.geeker-gallery__pagination'),
+        el: section.querySelector('.geeker-gallery__pagination'),
         clickable: true
       },
       a11y: {
         containerRoleDescriptionMessage: 'Карусель',
         itemRoleDescriptionMessage: 'Слайд',
-        prevSlideMessage: 'Попередній слайд',
-        nextSlideMessage: 'Наступний слайд',
         firstSlideMessage: 'Перший слайд',
         lastSlideMessage: 'Останній слайд',
-        paginationBulletMessage: 'Перейти до слайда {{index}}'
+        paginationBulletMessage: 'Перейти до слайда {{index}}',
+        ...labels
       }
+    };
+  }
+
+  if (typeof Swiper === 'function' && document.getElementById('swiper-css')?.sheet) {
+    swiper = new Swiper(carousel, {
+      ...carouselOptions(gallery, {
+        prevSlideMessage: 'Попередній слайд',
+        nextSlideMessage: 'Наступний слайд'
+      }),
+      autoplay: { delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }
     });
+
+    const media = document.querySelector('[data-video-carousel]');
+    const videos = new Swiper(media.querySelector('.swiper'), carouselOptions(media, {
+      itemRoleDescriptionMessage: 'Відео',
+      prevSlideMessage: 'Попереднє відео',
+      nextSlideMessage: 'Наступне відео',
+      paginationBulletMessage: 'Перейти до відео {{index}}'
+    }));
+    media.querySelector('.geeker-gallery__controls').hidden = false;
     controls.hidden = false;
     updateAutoplay();
 
@@ -65,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     reducedMotion.addEventListener('change', () => {
-      swiper.params.speed = reducedMotion.matches ? 0 : 420;
+      swiper.params.speed = videos.params.speed = reducedMotion.matches ? 0 : 420;
       if (reducedMotion.matches) autoPaused = true;
       updateAutoplay();
     });

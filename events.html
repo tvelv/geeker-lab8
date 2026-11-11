@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="uk">
   <head>
-    <script src="js/theme.js"></script>
+    <style media="(prefers-reduced-motion: no-preference)">@view-transition { navigation: auto; }</style>
+    <script src="js/theme.js?v=motion"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Турніри та івенти. Geeker - настільні ігри, зустрічі з друзями та ігрові події.">
@@ -12,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
     <script src="js/main.js?v=lab7-ui" defer></script>
   <link rel="stylesheet" href="css/tailwind.css?v=cards-4"><link rel="stylesheet" href="css/custom-styles.css?v=lab7-ui">
-    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/theme.css?v=motion">
   </head>
   <body class="bg-canvas font-body text-base leading-relaxed text-ink">
     <a class="skip-link fixed -top-24 left-4 z-50 rounded-lg bg-heading p-4 text-canvas focus:top-4 transition-colors hover:text-heading" href="#main">Перейти до вмісту</a>
@@ -35,8 +36,14 @@
     </nav>
     <div class="geeker-header-actions">
       <button class="geeker-theme-toggle" type="button" role="switch" aria-label="Світла тема" aria-checked="false" data-theme-toggle hidden>
-        <span class="theme-sun" aria-hidden="true">☀</span>
-        <span class="theme-moon" aria-hidden="true">☾</span>
+        <svg class="theme-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+          <path d="M12 2.75v2.1m0 14.3v2.1M2.75 12h2.1m14.3 0h2.1M5.45 5.45l1.5 1.5m10.1 10.1 1.5 1.5m0-13.1-1.5 1.5M6.95 17.05l-1.5 1.5" stroke="currentColor" stroke-width="1.85" stroke-linecap="round"/>
+        </svg>
+        <svg class="theme-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M14.5 3.7A8.5 8.5 0 1 0 20 16.6a7.3 7.3 0 0 1-5.5-12.9Z" fill="currentColor"/>
+          <path d="M18.65 4.4v3.9m-1.95-1.95h3.9" stroke="currentColor" stroke-width="1.65" stroke-linecap="round"/>
+        </svg>
       </button>
     <details class="lab7-menu">
       <summary aria-label="Меню навігації">
