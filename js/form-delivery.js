@@ -1,10 +1,8 @@
 (() => {
-  const accessKey = '';
+  const accessKey = '1b96f27a-fc22-4926-a0f5-b4b6f4c56102';
   const endpoint = 'https://api.web3forms.com/submit';
 
   window.sendGeekerForm = async (form, subject) => {
-    if (!accessKey) throw new Error('Надсилання ще не активовано. Введені дані залишилися у формі.');
-
     const data = new FormData(form);
     data.set('access_key', accessKey);
     data.set('subject', subject);
