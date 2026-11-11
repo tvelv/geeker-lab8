@@ -95,33 +95,40 @@
 }
 :root[data-theme="light"] :is(input, textarea)::placeholder { color: var(--color-muted); }
 
-/* Landing page and its existing artwork. */
+/* The light illustration sits directly on the hero background. */
+.geeker-hero-light-art { display: none; }
+
 :root[data-theme="light"] .geeker-landing [aria-labelledby="hero-title"] {
-  background: radial-gradient(ellipse at 90% 18%, #ead8f5, transparent 60%),
-    linear-gradient(120deg, #fffaf7, #f7effb 66%, #f0e5f8);
+  background: radial-gradient(ellipse at 77% 51%, #e7d4f3, transparent 53%),
+    radial-gradient(ellipse at 94% 8%, #f5e5ec, transparent 54%),
+    linear-gradient(120deg, #fffaf5, #f8f1fb 68%, #f2e8f7);
 }
-:root[data-theme="light"] .geeker-hero-veil { background: none; }
-:root[data-theme="light"] .geeker-hero-art {
-  inset: auto -22% 0 auto;
-  width: 90%;
-  height: 76%;
-  object-position: 85% center;
-  filter: opacity(.19);
-  mask-image: radial-gradient(ellipse at 78% 52%, #000, transparent 70%);
+:root[data-theme="light"] :is(.geeker-hero-veil, .geeker-hero-art) { display: none; }
+:root[data-theme="light"] .geeker-hero-light-art {
+  display: block;
+  inset: auto -17% -4% auto;
+  width: min(92%, 27rem);
+  height: 74%;
+  object-fit: contain;
+  filter: opacity(.34);
+  mask-image: linear-gradient(90deg, transparent 4%, #000 48%);
 }
 :root[data-theme="light"] .geeker-landing .hero-accent,
 :root[data-theme="light"] .geeker-hero-line { color: var(--theme-link); }
+:root[data-theme="light"] .hero-motion-toggle {
+  border-color: var(--theme-field-border);
+  color: var(--theme-link);
+  background: #faf5ff;
+}
+:root[data-theme="light"] .hero-motion-toggle:hover { background: var(--theme-hover); }
 
-@media (min-width: 60rem) {
-  :root[data-theme="light"] .geeker-hero-art {
-    inset: 3.6rem max(2rem, calc((100% - 1200px) / 2 + .4rem)) auto auto;
-    width: min(44%, 35rem);
-    height: calc(100% - 7.2rem);
-    border-radius: 1.9rem;
-    object-position: 83% center;
+@media (min-width: 48rem) {
+  :root[data-theme="light"] .geeker-hero-light-art {
+    inset: 0 max(1rem, calc((100% - 1200px) / 2)) 0 auto;
+    width: min(49%, 37rem);
+    height: 100%;
     filter: none;
     mask-image: none;
-    box-shadow: 0 24px 55px rgb(56 32 82 / .22);
   }
 }
 
