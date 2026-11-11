@@ -14,7 +14,8 @@
     <script src="js/main.js?v=lab7-ui" defer></script>
   <link rel="stylesheet" href="css/tailwind.css?v=cards-4"><link rel="stylesheet" href="css/custom-styles.css?v=lab7-ui">
     <link rel="stylesheet" href="css/feedback.css">
-    <script src="js/feedback.js" defer></script>
+    <script src="js/form-delivery.js" defer></script>
+    <script src="js/feedback.js?v=send" defer></script>
   
     <link rel="stylesheet" href="css/theme.css?v=motion">
   </head>
@@ -110,9 +111,10 @@
         <header class="feedback-heading">
           <p class="mb-2 text-sm font-semibold text-violet-300">На зв’язку</p>
           <h2 id="feedback-title" class="mb-4 font-heading text-3xl font-bold text-heading md:text-4xl">Напишіть Geeker</h2>
-          <p id="feedback-note">Запитайте про ігри, зустрічі чи оренду. У демонстраційній формі дані перевіряються в браузері й не передаються клубу.</p>
+          <p id="feedback-note">Запитайте про ігри, зустрічі чи оренду. Залиште контакти, щоб Geeker міг відповісти.</p>
         </header>
-        <form id="feedback-form" class="feedback-panel rounded-2xl border border-line bg-surface p-6 sm:p-8" aria-describedby="feedback-note">
+        <form id="feedback-form" method="post" class="feedback-panel rounded-2xl border border-line bg-surface p-6 sm:p-8" aria-describedby="feedback-note">
+            <input type="checkbox" name="botcheck" hidden tabindex="-1" autocomplete="off">
           <fieldset id="feedback-fields" class="feedback-fields grid grid-cols-1 gap-6 md:grid-cols-2" disabled>
             <legend class="sr-only">Зворотний зв’язок. Усі поля обов’язкові.</legend>
             <div>
@@ -140,9 +142,9 @@
             <div class="feedback-wide">
               <label class="feedback-consent" for="feedback-consent">
                 <input id="feedback-consent" name="consent" type="checkbox" required aria-describedby="feedback-policy feedback-consent-error">
-                <span>Погоджуюся з умовами використання даних у демонстраційній формі.</span>
+                <span>Погоджуюся на використання моїх даних для відповіді на повідомлення.</span>
               </label>
-              <p class="feedback-hint" id="feedback-policy">Сайт не передає і не зберігає введені у форму дані.</p>
+              <p class="feedback-hint" id="feedback-policy">Дані форми передаються Geeker через Web3Forms.</p>
               <p class="feedback-error" id="feedback-consent-error" hidden></p>
             </div>
             <div class="feedback-wide">
@@ -150,13 +152,13 @@
               <p id="feedback-status" class="feedback-error" role="status"></p>
             </div>
           </fieldset>
-          <noscript><p class="feedback-hint">Щоб перевірити дані форми, увімкніть JavaScript.</p></noscript>
+          <noscript><p class="feedback-hint">Для надсилання повідомлення потрібен JavaScript.</p></noscript>
         </form>
         <dialog class="feedback-dialog" id="feedback-success" aria-labelledby="feedback-success-title" aria-describedby="feedback-success-copy">
           <form method="dialog">
             <span class="feedback-success-mark" aria-hidden="true">✓</span>
-            <h2 id="feedback-success-title" class="mb-4 font-heading text-2xl font-bold text-heading">Дані перевірено</h2>
-            <p id="feedback-success-copy" class="mb-6">Усі поля пройшли перевірку. Це демонстрація успішного надсилання. Повідомлення не було передано.</p>
+            <h2 id="feedback-success-title" class="mb-4 font-heading text-2xl font-bold text-heading">Повідомлення надіслано</h2>
+            <p id="feedback-success-copy" class="mb-6">Дякуємо за повідомлення. Geeker може відповісти за вказаними контактами.</p>
             <button type="submit" class="feedback-submit inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-heading focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-focus" autofocus>Готово</button>
           </form>
         </dialog>

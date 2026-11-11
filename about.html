@@ -10,6 +10,7 @@
   <link rel="icon" href="assets/images/geeker-mark.svg" type="image/svg+xml" sizes="any">
   <link rel="stylesheet" href="css/tailwind.css?v=lab7">
   <link rel="stylesheet" href="css/custom-styles.css?v=lab7-hero">
+  <link rel="stylesheet" href="css/about-cards.css">
   <script src="js/main.js?v=lab7-ui" defer></script>
 
     <link rel="stylesheet" href="css/theme.css?v=motion">
@@ -91,18 +92,78 @@
       <p class="weather-eyebrow">Для кого Geeker</p>
       <h2 id="about-company-title">У кожної компанії свій вечір</h2>
       <ul>
-        <li><strong>Для тих, хто грає вперше</strong><p>Почніть із гри, правила якої можна пояснити одним пробним ходом. У Dixit ви одразу побачите, як працює підказка оповідача.</p></li>
-        <li><strong>Для друзів, які люблять стратегії</strong><p>Якщо хочеться неспішно подумати над ходами, придивіться до «Крил». У цій грі кожен збирає власний заповідник і шукає вдалі комбінації птахів.</p></li>
-        <li><strong>Для компаній, яким цікава спільна гра</strong><p>У «Містеріумі» кожен бачить у підказках щось своє. Найцікавіше починається, коли ви зіставляєте свої версії.</p></li>
+        <li class="about-card">
+          <strong>Для тих, хто грає вперше</strong>
+          <p>Почніть із гри, правила якої можна пояснити одним пробним ходом. У Dixit ви одразу побачите, як працює підказка оповідача.</p>
+          <details>
+            <summary>Як почати з Dixit</summary>
+            <div class="about-card__detail">
+              <p>Нехай кожен спробує дати підказку до однієї карти. Обговоріть, чому одні асоціації вгадуються одразу, а інші збивають з пантелику.</p>
+              <a href="catalog.html">Глянути добірку ігор <span aria-hidden="true">↗</span></a>
+            </div>
+          </details>
+        </li>
+        <li class="about-card">
+          <strong>Для друзів, які люблять стратегії</strong>
+          <p>Якщо хочеться неспішно подумати над ходами, придивіться до «Крил». У цій грі кожен збирає власний заповідник і шукає вдалі комбінації птахів.</p>
+          <details>
+            <summary>Що спробувати у «Крилах»</summary>
+            <div class="about-card__detail">
+              <p>У першій партії спробуйте зібрати птахів, чиї здібності запускаються одна за одною в одному середовищі.</p>
+              <a href="catalog.html">Знайти ігри в каталозі <span aria-hidden="true">↗</span></a>
+            </div>
+          </details>
+        </li>
+        <li class="about-card">
+          <strong>Для компаній, яким цікава спільна гра</strong>
+          <p>У «Містеріумі» кожен бачить у підказках щось своє. Найцікавіше починається, коли ви зіставляєте свої версії.</p>
+          <details>
+            <summary>Як грати разом</summary>
+            <div class="about-card__detail">
+              <p>Нехай кожен назве одну деталь із видіння, перш ніж команда обговорить версії. Порівнюйте кольори, силуети й настрій карт.</p>
+              <a href="index.html#media">Переглянути добірку відео <span aria-hidden="true">↗</span></a>
+            </div>
+          </details>
+        </li>
       </ul>
     </section>
     <section class="about-first" aria-labelledby="about-first-title">
       <p class="weather-eyebrow">Від задуму до першого ходу</p>
       <h2 id="about-first-title">Перша зустріч у три кроки</h2>
       <ol>
-        <li><strong>Домовтеся про час</strong><p>Визначте, скільки вас буде і чи вистачить часу на коротку партію або цілий ігровий вечір.</p></li>
-        <li><strong>Підготуйтеся до першого ходу</strong><p>Оберіть гру й подивіться відео. Для початку достатньо зрозуміти мету партії та дії у свій хід.</p></li>
-        <li><strong>Збережіть ідею вечора</strong><p>Складіть план на головній сторінці. Його можна скопіювати й надіслати друзям.</p></li>
+        <li class="about-card">
+          <strong>Домовтеся про час</strong>
+          <p>Визначте, скільки вас буде і чи вистачить часу на коротку партію або цілий ігровий вечір.</p>
+          <details>
+            <summary>Що вказати в заявці</summary>
+            <div class="about-card__detail">
+              <p>Виберіть дату, кількість гравців і тривалість зустрічі. У побажаннях можна зазначити, що частина компанії грає вперше.</p>
+              <a href="booking.html">Відкрити бронювання <span aria-hidden="true">↗</span></a>
+            </div>
+          </details>
+        </li>
+        <li class="about-card">
+          <strong>Підготуйтеся до першого ходу</strong>
+          <p>Оберіть гру й подивіться відео. Для початку достатньо зрозуміти мету партії та дії у свій хід.</p>
+          <details>
+            <summary>З чого почати правила</summary>
+            <div class="about-card__detail">
+              <p>Спочатку знайдіть відповідь на два запитання. Як закінчується гра і що я можу зробити у свій хід? Решту зручніше уточнювати за столом.</p>
+              <a href="index.html#media">Подивитися відео <span aria-hidden="true">↗</span></a>
+            </div>
+          </details>
+        </li>
+        <li class="about-card">
+          <strong>Збережіть ідею вечора</strong>
+          <p>Складіть план на головній сторінці. Його можна скопіювати й надіслати друзям.</p>
+          <details>
+            <summary>Що додати до плану</summary>
+            <div class="about-card__detail">
+              <p>Укажіть розмір компанії, жанр гри та приблизну тривалість. Готовий текст можна скопіювати в груповий чат.</p>
+              <a href="index.html#plan">Спланувати вечір <span aria-hidden="true">↗</span></a>
+            </div>
+          </details>
+        </li>
       </ol>
       <div class="about-links"><a href="index.html#plan">Спланувати вечір ↗</a><a href="index.html#faq">Поширені запитання ↗</a></div>
     </section>

@@ -79,25 +79,6 @@ if (filters) {
   filters.addEventListener("reset", () => requestAnimationFrame(update));
   filters.addEventListener("submit", (event) => event.preventDefault());
 }
-const booking = document.querySelector("#booking-form");
-if (booking) {
-  const date = booking.elements.date;
-  const now = new Date();
-  date.min = [
-    now.getFullYear(),
-    String(now.getMonth() + 1).padStart(2, "0"),
-    String(now.getDate()).padStart(2, "0"),
-  ].join("-");
-  booking.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (!booking.reportValidity()) return;
-    const result = document.querySelector("#booking-result");
-    result.hidden = false;
-    result.textContent =
-      "Поля заявки заповнено коректно. Це навчальна демонстрація: бронювання не створено, дані нікуди не надіслано.";
-  });
-}
-
 const menu = document.querySelector(".lab7-menu");
 if (menu) {
   menu.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {

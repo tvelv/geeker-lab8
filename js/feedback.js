@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [form.elements.message, (value) => value.length >= 10 && value.length <= 1000
       ? '' : 'Напишіть повідомлення від 10 до 1000 символів.'],
     [form.elements.consent, () => form.elements.consent.checked
-      ? '' : 'Підтвердьте згоду, щоб перевірити форму.']
+      ? '' : 'Підтвердьте згоду, щоб надіслати повідомлення.']
   ]);
 
   function normalizePhone() {
@@ -49,13 +49,17 @@ document.addEventListener('DOMContentLoaded', () => {
           || field.hasAttribute('aria-invalid') || field.hasAttribute('data-valid')) validate(field);
     });
     field.addEventListener(field.type === 'checkbox' ? 'change' : 'input', () => {
-      status.textContent = '';
+      if (!sending) status.textContent = '';
       if (field.hasAttribute('aria-invalid') || field.hasAttribute('data-valid')) validate(field);
     });
   }
 
-  form.addEventListener('submit', (event) => {
+  const button = form.querySelector('[type="submit"]');
+  let sending = false;
+
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (sending) return;
     normalizePhone();
     let firstError;
     for (const field of validators.keys()) {
@@ -67,10 +71,23 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    form.reset();
-    for (const field of validators.keys()) field.removeAttribute('data-valid');
-    status.textContent = '';
-    success.showModal();
+    sending = true;
+    button.disabled = true;
+    status.textContent = 'Надсилаємо повідомлення…';
+    status.className = 'feedback-hint';
+    try {
+      await window.sendGeekerForm(form, 'Geeker — нове повідомлення');
+      form.reset();
+      for (const field of validators.keys()) field.removeAttribute('data-valid');
+      status.textContent = '';
+      success.showModal();
+    } catch (error) {
+      status.textContent = error.message;
+    } finally {
+      status.className = 'feedback-error';
+      button.disabled = false;
+      sending = false;
+    }
   });
 
   success.addEventListener('click', (event) => {
