@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="uk">
   <head>
+    <script src="js/theme.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Клуб настільних ігор. Geeker - настільні ігри, зустрічі з друзями та ігрові події.">
@@ -20,7 +21,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
     <script src="js/gallery.js" defer></script>
-</head>
+
+    <link rel="stylesheet" href="css/theme.css">
+  </head>
   <body class="geeker-landing bg-canvas font-body leading-relaxed text-ink">
 <a class="fixed -top-24 left-4 z-50 rounded-lg bg-heading p-4 text-canvas focus:top-4" href="#main">Перейти до вмісту</a>
 <header class="lab7-header">
@@ -39,6 +42,11 @@
 <a href="about.html">Про нас</a>
 <a href="index.html#faq">Запитання</a>
     </nav>
+    <div class="geeker-header-actions">
+      <button class="geeker-theme-toggle" type="button" role="switch" aria-label="Світла тема" aria-checked="false" data-theme-toggle hidden>
+        <span class="theme-sun" aria-hidden="true">☀</span>
+        <span class="theme-moon" aria-hidden="true">☾</span>
+      </button>
     <details class="lab7-menu">
       <summary aria-label="Меню навігації">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -54,12 +62,13 @@
 <a href="index.html#faq">Запитання</a>
       </nav>
     </details>
+    </div>
   </div>
 </header>
 <main id="main" tabindex="-1">
 <section aria-labelledby="hero-title" class="relative isolate overflow-hidden border-b border-line">
-<img src="assets/images/hero.webp" alt="" width="1536" height="1024" fetchpriority="high" class="absolute inset-0 -z-20 h-full w-full object-cover object-[70%_center]">
-<div class="absolute inset-0 -z-10 bg-linear-to-r from-canvas via-canvas/90 to-canvas/45 md:via-canvas/75 md:to-canvas/10"></div>
+<img src="assets/images/hero.webp" alt="" width="1536" height="1024" fetchpriority="high" class="geeker-hero-art absolute inset-0 -z-20 h-full w-full object-cover object-[70%_center]">
+<div class="geeker-hero-veil absolute inset-0 -z-10 bg-linear-to-r from-canvas via-canvas/90 to-canvas/45 md:via-canvas/75 md:to-canvas/10"></div>
 <div class="mx-auto w-[calc(100%-2rem)] max-w-[1200px] md:w-[calc(100%-3rem)] grid min-h-[580px] items-center py-16 md:min-h-[640px] md:grid-cols-2 md:py-24 lg:min-h-[680px]">
 <div>
 <p class="mb-5 text-xs uppercase tracking-widest text-violet-200">Geeker / клуб настільних ігор</p>

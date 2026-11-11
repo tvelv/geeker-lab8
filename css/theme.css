@@ -1,0 +1,244 @@
+:root { color-scheme: dark; }
+
+.geeker-header-actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: .5rem;
+}
+
+.geeker-theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #715e8c;
+  border-radius: .75rem;
+  color: #f8df9e;
+  background: #241b3c;
+  cursor: pointer;
+  transition: background-color .18s ease, border-color .18s ease;
+}
+.geeker-theme-toggle:hover { background: #362651; }
+.geeker-theme-toggle span { grid-area: 1 / 1; font-size: 1.4rem; line-height: 1; }
+.geeker-theme-toggle .theme-moon,
+:root[data-theme="light"] .geeker-theme-toggle .theme-sun { display: none; }
+:root[data-theme="light"] .geeker-theme-toggle .theme-moon { display: block; }
+
+@media (max-width: 64rem) {
+  .lab7-header .lab7-nav { display: none; }
+  .lab7-header .lab7-menu { display: block; }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-canvas: #f9f7fc;
+  --color-surface: #fff;
+  --color-raised: #f1ebf8;
+  --color-heading: #241632;
+  --color-ink: #453650;
+  --color-muted: #62536f;
+  --color-line: #d9cce5;
+  --color-primary: #6835b5;
+  --color-accent: #f7deb0;
+  --color-focus: #6739b0;
+  --theme-link: #6233a3;
+  --theme-hover: #eae0f5;
+  --theme-field-border: #9c86af;
+  --theme-error: #a92646;
+  --theme-success: #286547;
+  --theme-shadow: 0 12px 30px rgb(55 26 83 / .10);
+}
+
+/* Shared surfaces and controls. */
+:root[data-theme="light"] :is(.lab7-header, .geeker-landing > header) {
+  background: linear-gradient(105deg, #fff, #fbf8ff 75%, #f6edf9);
+}
+:root[data-theme="light"] .lab7-footer { background: #f2ecf8; }
+:root[data-theme="light"] .lab7-brand { color: var(--color-heading); }
+:root[data-theme="light"] :is(.lab7-nav, .lab7-menu nav, .lab7-footer nav) a { color: var(--color-ink); }
+:root[data-theme="light"] :is(.lab7-nav, .lab7-menu nav, .lab7-footer nav) a:is(:hover, [aria-current="page"]) {
+  color: var(--theme-link);
+  background: var(--theme-hover);
+}
+:root[data-theme="light"] :is(.lab7-nav, .lab7-menu nav) a[aria-current="page"] {
+  box-shadow: inset 0 -2px #8454c3;
+}
+:root[data-theme="light"] .lab7-menu nav {
+  border-color: var(--color-line);
+  background: var(--color-surface);
+  box-shadow: var(--theme-shadow);
+}
+:root[data-theme="light"] :is(.geeker-theme-toggle, .lab7-menu summary) {
+  border-color: var(--theme-field-border);
+  color: var(--theme-link);
+  background: #f6effb;
+}
+:root[data-theme="light"] :is(.geeker-theme-toggle:hover, .lab7-menu summary:hover) {
+  background: var(--theme-hover);
+}
+:root[data-theme="light"] :is(a, button, summary, input, select, textarea):focus-visible {
+  outline-color: var(--color-focus);
+}
+:root[data-theme="light"] :is(.text-violet-200, .text-violet-300, .card-eyebrow) { color: var(--theme-link); }
+:root[data-theme="light"] :is(.text-slate-200, .text-slate-300) { color: var(--color-ink); }
+:root[data-theme="light"] .bg-primary { color: #fff; }
+:root[data-theme="light"] .bg-primary:hover { background-color: #592a9e; }
+:root[data-theme="light"] .bg-primary:active { background-color: #492083; }
+:root[data-theme="light"] .bg-accent.text-canvas { color: #462e12; }
+:root[data-theme="light"] .text-link { color: var(--theme-link); }
+:root[data-theme="light"] .text-link:hover { color: var(--color-heading); }
+:root[data-theme="light"] .shadow-card { box-shadow: var(--theme-shadow); }
+:root[data-theme="light"] :where(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  border-color: var(--theme-field-border);
+}
+:root[data-theme="light"] :is(input, textarea)::placeholder { color: var(--color-muted); }
+
+/* Landing page and its existing artwork. */
+:root[data-theme="light"] .geeker-landing [aria-labelledby="hero-title"] {
+  background: radial-gradient(ellipse at 90% 18%, #ead8f5, transparent 60%),
+    linear-gradient(120deg, #fffaf7, #f7effb 66%, #f0e5f8);
+}
+:root[data-theme="light"] .geeker-hero-veil { background: none; }
+:root[data-theme="light"] .geeker-hero-art {
+  inset: auto -22% 0 auto;
+  width: 90%;
+  height: 76%;
+  object-position: 85% center;
+  filter: opacity(.19);
+  mask-image: radial-gradient(ellipse at 78% 52%, #000, transparent 70%);
+}
+:root[data-theme="light"] .geeker-landing .hero-accent,
+:root[data-theme="light"] .geeker-hero-line { color: var(--theme-link); }
+
+@media (min-width: 60rem) {
+  :root[data-theme="light"] .geeker-hero-art {
+    inset: 3.6rem max(2rem, calc((100% - 1200px) / 2 + .4rem)) auto auto;
+    width: min(44%, 35rem);
+    height: calc(100% - 7.2rem);
+    border-radius: 1.9rem;
+    object-position: 83% center;
+    filter: none;
+    mask-image: none;
+    box-shadow: 0 24px 55px rgb(56 32 82 / .22);
+  }
+}
+
+:root[data-theme="light"] .geeker-landing #services {
+  background: radial-gradient(ellipse at 90% 0%, #ede0f8, transparent 64%), #f7f2fb;
+}
+:root[data-theme="light"] .geeker-landing :is(#benefits, #services) article {
+  --card-accent: 110 63 162;
+  --card-border: .27;
+  background: radial-gradient(ellipse at 100% 0%, rgb(var(--card-accent) / .09), transparent 70%),
+    linear-gradient(145deg, #fff, #fdfbff);
+  box-shadow: var(--theme-shadow);
+}
+:root[data-theme="light"] .geeker-landing :is(#benefits, #services) article:nth-child(2) { --card-accent: 143 77 21; }
+:root[data-theme="light"] .geeker-landing :is(#benefits, #services) article:nth-child(3) { --card-accent: 30 101 95; }
+:root[data-theme="light"] .geeker-landing :is(#benefits, #services) article:is(:hover, :focus-within) {
+  --card-border: .55;
+}
+
+/* Games, events and dialogs. */
+:root[data-theme="light"] .flip-card.is-interactive .flip-card__back {
+  background: linear-gradient(145deg, #f6eefb, #fff 80%);
+}
+:root[data-theme="light"] :is(.game-card .flip-card__face h3, .game-card .flip-card__face .meta) {
+  color: var(--color-heading);
+}
+:root[data-theme="light"] :is(.flip-card__back > .small, .game-card .flip-card__face .small, .slide-card .event-panel-content .small) {
+  color: var(--color-ink);
+}
+:root[data-theme="light"] .game-card .meta span {
+  border-color: var(--color-line);
+  background: var(--color-raised);
+}
+:root[data-theme="light"] :is(.card-toggle, .game-video-link, .game-video-dialog button, .game-video-dialog__external) {
+  border-color: var(--theme-field-border);
+  color: var(--theme-link);
+  background: var(--color-raised);
+}
+:root[data-theme="light"] :is(.card-toggle, .game-video-link, .game-video-dialog button, .game-video-dialog__external):hover {
+  color: var(--color-heading);
+  background: var(--theme-hover);
+}
+:root[data-theme="light"] .event-visual--discover { color: #6233a3; background: linear-gradient(145deg, #efe0fb, #faf3ff); }
+:root[data-theme="light"] .event-visual--compete { color: #864414; background: linear-gradient(145deg, #f8e5c7, #fff7e8); }
+:root[data-theme="light"] .event-visual--together { color: #22675f; background: linear-gradient(145deg, #d7eee7, #f0f9f6); }
+:root[data-theme="light"] .slide-card.is-interactive .event-slide-panel {
+  border-color: var(--color-line);
+  background: linear-gradient(145deg, #fff, #f7f1fb);
+}
+:root[data-theme="light"] :is(.game-video-dialog, .feedback-dialog) {
+  border-color: var(--color-line);
+  color: var(--color-ink);
+  background: var(--color-surface);
+  box-shadow: 0 22px 60px rgb(36 22 50 / .27);
+}
+
+/* Gallery controls and cover cards. */
+:root[data-theme="light"] .geeker-gallery__slide {
+  border-color: var(--color-line);
+  background: var(--color-surface);
+}
+:root[data-theme="light"] .geeker-gallery__cover {
+  background: radial-gradient(ellipse at 50% 100%, #e8d7f3, #f9f1fc 76%);
+}
+:root[data-theme="light"] .geeker-gallery__zoom { color: var(--theme-link); background: #fff; }
+:root[data-theme="light"] .geeker-gallery__info { color: var(--color-ink); }
+:root[data-theme="light"] .geeker-gallery__info h3 { color: var(--color-heading); }
+:root[data-theme="light"] .geeker-gallery__tag { color: var(--theme-link); }
+:root[data-theme="light"] :is(.geeker-gallery__arrow, .geeker-gallery__autoplay) {
+  border-color: var(--theme-field-border);
+  color: var(--theme-link);
+  background: var(--color-surface);
+}
+:root[data-theme="light"] :is(.geeker-gallery__arrow, .geeker-gallery__autoplay):hover { background: var(--theme-hover); }
+:root[data-theme="light"] .geeker-gallery__pagination .swiper-pagination-bullet::before { border-color: var(--theme-link); }
+:root[data-theme="light"] .geeker-gallery__pagination .swiper-pagination-bullet-active::before { background: var(--theme-link); }
+
+/* Weather, about and feedback. */
+:root[data-theme="light"] :is(.weather-card, .about-intro) {
+  border-color: var(--color-line);
+  background: radial-gradient(ellipse at 96% 0%, #eee1f8, transparent 67%), var(--color-surface);
+  box-shadow: var(--theme-shadow);
+}
+:root[data-theme="light"] :is(.weather-card h3, #weather-value, .weather-metrics dd, .about-intro h1, .about-intro .about-lead, .about-first h2, .about-first li strong) {
+  color: var(--color-heading);
+}
+:root[data-theme="light"] :is(.weather-eyebrow, .weather-footer a, .about-path a, .about-teaser, .about-links a) {
+  color: var(--theme-link);
+}
+:root[data-theme="light"] :is(#weather-status, .weather-metrics dt, .weather-forecast summary, .weather-forecast li) {
+  color: var(--color-ink);
+}
+:root[data-theme="light"] :is(.weather-metrics > div, .weather-forecast li, .about-first li) {
+  border-color: var(--color-line);
+  background: var(--color-surface);
+}
+:root[data-theme="light"] #weather-icon {
+  border-color: #d8b88b;
+  color: #8b4b14;
+  background: #fff2d7;
+}
+:root[data-theme="light"] .weather-forecast li > span { color: #8b4b14; }
+:root[data-theme="light"] .weather-footer button {
+  border-color: var(--theme-field-border);
+  color: var(--theme-link);
+  background: var(--color-raised);
+}
+:root[data-theme="light"] .weather-footer button:hover { background: var(--theme-hover); }
+:root[data-theme="light"] :is(.feedback-label, .feedback-consent, .feedback-input) { color: var(--color-heading); }
+:root[data-theme="light"] .feedback-input { background: var(--color-surface); }
+:root[data-theme="light"] .feedback-hint { color: var(--color-muted); }
+:root[data-theme="light"] .feedback-error { color: var(--theme-error); }
+:root[data-theme="light"] :is(.feedback-input:focus, .feedback-consent input:focus-visible, .feedback-dialog button:focus-visible) {
+  outline-color: var(--color-focus);
+}
+:root[data-theme="light"] .feedback-input[aria-invalid="true"] { border-color: var(--theme-error); }
+:root[data-theme="light"] .feedback-consent input[aria-invalid="true"] { outline-color: var(--theme-error); }
+:root[data-theme="light"] .feedback-input[data-valid] { border-color: var(--theme-success); }
+:root[data-theme="light"] .feedback-consent input { accent-color: var(--color-primary); }
+:root[data-theme="light"] .feedback-success-mark { color: var(--theme-success); background: #e2f3e9; }

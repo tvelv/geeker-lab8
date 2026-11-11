@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="uk">
   <head>
+    <script src="js/theme.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Контакти та локація. Geeker - настільні ігри, зустрічі з друзями та ігрові події.">
@@ -13,6 +14,8 @@
   <link rel="stylesheet" href="css/tailwind.css?v=cards-4"><link rel="stylesheet" href="css/custom-styles.css?v=lab7-ui">
     <link rel="stylesheet" href="css/feedback.css">
     <script src="js/feedback.js" defer></script>
+  
+    <link rel="stylesheet" href="css/theme.css">
   </head>
   <body class="bg-canvas font-body text-base leading-relaxed text-ink">
     <a class="skip-link fixed -top-24 left-4 z-50 rounded-lg bg-heading p-4 text-canvas focus:top-4 transition-colors hover:text-heading" href="#main">Перейти до вмісту</a>
@@ -33,6 +36,11 @@
 <a href="about.html">Про нас</a>
 <a href="index.html#faq">Запитання</a>
     </nav>
+    <div class="geeker-header-actions">
+      <button class="geeker-theme-toggle" type="button" role="switch" aria-label="Світла тема" aria-checked="false" data-theme-toggle hidden>
+        <span class="theme-sun" aria-hidden="true">☀</span>
+        <span class="theme-moon" aria-hidden="true">☾</span>
+      </button>
     <details class="lab7-menu">
       <summary aria-label="Меню навігації">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -48,6 +56,7 @@
 <a href="index.html#faq">Запитання</a>
       </nav>
     </details>
+    </div>
   </div>
 </header>
     <main id="main">
