@@ -5,16 +5,14 @@
   window.sendGeekerForm = async (form, subject) => {
     if (!accessKey) throw new Error('Адреса отримувача ще не підтверджена. Введені дані залишилися у формі.');
 
-    const data = new FormData(form);
-    data.set('access_key', accessKey);
-    data.set('subject', subject);
-    data.set('from_name', 'Geeker');
+    const fields = Object.fromEntries(new FormData(form));
+    const data = { ...fields, access_key: accessKey, subject, from_name: 'Geeker' };
 
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
+        body: JSON.stringify(data),
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
         signal: AbortSignal.timeout(12000)
       });
       const result = await response.json();
