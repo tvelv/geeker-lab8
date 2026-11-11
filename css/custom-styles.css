@@ -563,13 +563,13 @@ html { scroll-padding-top: 6.4rem; }
 .about-path a, .about-teaser, .about-links a { color: #e3c8ff; text-decoration: underline; text-underline-offset: .25em; }
 .about-teaser { display: inline-flex; align-items: center; min-height: 44px; margin-top: .75rem; }
 .about-intro { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(1rem, 5vw, 3rem); padding: clamp(1.1rem, 4vw, 2.5rem); border: 1px solid #654a89; border-radius: 1.4rem; background: radial-gradient(ellipse at 90% 0%, #483064, transparent 60%), #211936; }
-.about-intro h1 { margin-block: .35rem .55rem; color: #fff8ff; font: 800 clamp(2.5rem, 5vw, 4.5rem)/1.05 var(--font-heading); letter-spacing: -.06em; }
+.about-intro h1 { margin-block: .35rem .55rem; color: #fff8ff; font: 700 clamp(2.5rem, 5vw, 4.5rem)/1.05 var(--font-heading); letter-spacing: -.06em; }
 .about-intro p { max-width: 38ch; }
 .about-intro .about-lead { margin-bottom: .7rem; color: #fff8ff; font-size: 1.18rem; font-weight: 700; }
 .about-intro .lab7-header__cta { margin-top: 1.3rem; }
 .about-intro img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 1rem; }
 .about-first { margin-top: clamp(2.5rem, 7vw, 4.5rem); }
-.about-first h2 { margin-bottom: 1rem; color: #fff8ff; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; }
+.about-first h2 { margin-bottom: 1rem; color: #fff8ff; font-size: clamp(1.5rem, 4vw, 2.2rem); font-family: var(--font-heading); font-weight: 700; }
 .about-first :is(ol, ul) { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .about-first ol { list-style-position: inside; list-style-type: decimal; }
 .about-first ul { list-style: none; }
