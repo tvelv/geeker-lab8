@@ -46,67 +46,102 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  if (typeof Swiper === 'function' && document.getElementById('swiper-css')?.sheet) {
-    swiper = new Swiper(carousel, {
-      ...carouselOptions(gallery, {
-        prevSlideMessage: 'Попередній слайд',
-        nextSlideMessage: 'Наступний слайд'
-      }),
-      autoplay: { delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }
-    });
+  function initializeGallery() {
+    if (typeof Swiper === 'function' && document.getElementById('swiper-css')?.sheet) {
+      swiper = new Swiper(carousel, {
+        ...carouselOptions(gallery, {
+          prevSlideMessage: 'Попередній слайд',
+          nextSlideMessage: 'Наступний слайд'
+        }),
+        autoplay: { delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }
+      });
 
-    const media = document.querySelector('[data-video-carousel]');
-    const videos = new Swiper(media.querySelector('.swiper'), carouselOptions(media, {
-      itemRoleDescriptionMessage: 'Відео',
-      prevSlideMessage: 'Попереднє відео',
-      nextSlideMessage: 'Наступне відео',
-      paginationBulletMessage: 'Перейти до відео {{index}}'
-    }));
-    media.querySelector('.geeker-gallery__controls').hidden = false;
-    controls.hidden = false;
-    updateAutoplay();
-
-    new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
+      const media = document.querySelector('[data-video-carousel]');
+      const videos = new Swiper(media.querySelector('.swiper'), carouselOptions(media, {
+        itemRoleDescriptionMessage: 'Відео',
+        prevSlideMessage: 'Попереднє відео',
+        nextSlideMessage: 'Наступне відео',
+        paginationBulletMessage: 'Перейти до відео {{index}}'
+      }));
+      media.querySelector('.geeker-gallery__controls').hidden = false;
+      controls.hidden = false;
       updateAutoplay();
-    }, { threshold: .35 }).observe(carousel);
 
-    toggle.addEventListener('click', () => {
-      autoPaused = !autoPaused;
-      updateAutoplay();
-    });
-    gallery.addEventListener('focusin', (event) => {
-      if (event.target !== toggle) {
-        autoPaused = true;
+      new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
         updateAutoplay();
-      }
-    });
-    reducedMotion.addEventListener('change', () => {
-      swiper.params.speed = videos.params.speed = reducedMotion.matches ? 0 : 420;
-      if (reducedMotion.matches) autoPaused = true;
-      updateAutoplay();
+      }, { threshold: .35 }).observe(carousel);
+
+      toggle.addEventListener('click', () => {
+        autoPaused = !autoPaused;
+        updateAutoplay();
+      });
+      gallery.addEventListener('focusin', (event) => {
+        if (event.target !== toggle) {
+          autoPaused = true;
+          updateAutoplay();
+        }
+      });
+      reducedMotion.addEventListener('change', () => {
+        swiper.params.speed = videos.params.speed = reducedMotion.matches ? 0 : 420;
+        if (reducedMotion.matches) autoPaused = true;
+        updateAutoplay();
+      });
+    }
+
+    if (typeof Fancybox !== 'undefined' && document.getElementById('fancybox-css').sheet) {
+      Fancybox.bind(gallery, '[data-fancybox="geeker-covers"]', {
+        Carousel: { transition: reducedMotion.matches ? false : 'slide' },
+        Images: { zoom: !reducedMotion.matches },
+        showClass: reducedMotion.matches ? false : 'f-fadeIn',
+        hideClass: reducedMotion.matches ? false : 'f-fadeOut',
+        contentClick: 'toggleZoom',
+        l10n: {
+          MODAL: 'Обкладинки настільних ігор', CLOSE: 'Закрити',
+          NEXT: 'Наступна', PREV: 'Попередня', TOGGLE_ZOOM: 'Змінити масштаб',
+          ZOOM_IN: 'Збільшити', ZOOM_OUT: 'Зменшити', TOGGLE_THUMBS: 'Мініатюри',
+          ITERATE_ZOOM: 'Змінити масштаб', TOGGLE_SLIDESHOW: 'Автопоказ'
+        },
+        on: {
+          init: () => { overlayOpen = true; updateAutoplay(); },
+          destroy: () => { overlayOpen = false; updateAutoplay(); }
+        }
+      });
+    }
+  }
+
+  function whenStylesReady(id) {
+    const link = document.getElementById(id);
+    if (!link || link.sheet) return Promise.resolve();
+    return new Promise((resolve) => {
+      link.addEventListener('load', resolve, { once: true });
+      link.addEventListener('error', resolve, { once: true });
     });
   }
 
-  if (typeof Fancybox !== 'undefined' && document.getElementById('fancybox-css').sheet) {
-    Fancybox.bind(gallery, '[data-fancybox="geeker-covers"]', {
-      Carousel: { transition: reducedMotion.matches ? false : 'slide' },
-      Images: { zoom: !reducedMotion.matches },
-      showClass: reducedMotion.matches ? false : 'f-fadeIn',
-      hideClass: reducedMotion.matches ? false : 'f-fadeOut',
-      contentClick: 'toggleZoom',
-      l10n: {
-        MODAL: 'Обкладинки настільних ігор', CLOSE: 'Закрити',
-        NEXT: 'Наступна', PREV: 'Попередня', TOGGLE_ZOOM: 'Змінити масштаб',
-        ZOOM_IN: 'Збільшити', ZOOM_OUT: 'Зменшити', TOGGLE_THUMBS: 'Мініатюри',
-        ITERATE_ZOOM: 'Змінити масштаб', TOGGLE_SLIDESHOW: 'Автопоказ'
-      },
-      on: {
-        init: () => { overlayOpen = true; updateAutoplay(); },
-        destroy: () => { overlayOpen = false; updateAutoplay(); }
-      }
-    });
+  let started = false;
+  function startGallery() {
+    if (started) return;
+    started = true;
+    Promise.all([
+      whenStylesReady('swiper-css'),
+      whenStylesReady('fancybox-css'),
+    ]).then(initializeGallery);
   }
+
+  const media = document.querySelector('[data-video-carousel]');
+  const nearGallery = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    nearGallery.disconnect();
+    startGallery();
+  }, { rootMargin: '400px' });
+  nearGallery.observe(gallery);
+  if (media) nearGallery.observe(media);
+  document.addEventListener('focusin', (event) => {
+    if (!gallery.contains(event.target) && !media?.contains(event.target)) return;
+    nearGallery.disconnect();
+    startGallery();
+  });
 
   const typedLine = document.querySelector('[data-hero-typed]');
   if (!reducedMotion.matches && typeof Typed === 'function') {
