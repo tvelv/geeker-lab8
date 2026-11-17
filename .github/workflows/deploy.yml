@@ -1,0 +1,97 @@
+name: Geeker production deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: geeker-production
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Validate and package site
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Check JavaScript and local links
+        run: |
+          find js -type f -name "*.js" -print0 | xargs -0 -r -n1 node --check
+          python3 scripts/check_site.py
+      - name: Stage public files
+        run: |
+          mkdir _site
+          cp ./*.html .nojekyll _site/
+          for file in robots.txt sitemap.xml; do
+            if [ -f "$file" ]; then cp "$file" _site/; fi
+          done
+          cp -r assets css js _site/
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  publish:
+    name: Deploy to GitHub Pages
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.release.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: release
+      - name: Check public page
+        env:
+          PAGES_URL: ${{ steps.release.outputs.page_url }}
+        run: |
+          curl --fail --silent --show-error --retry 6 --retry-all-errors "$PAGES_URL" -o release.html
+          grep -Fq 'id="budget-total"' release.html
+
+  vercel:
+    name: Verify Vercel production release
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      statuses: read
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Wait for Vercel status for this commit
+        run: |
+          for attempt in {1..36}; do
+            state=$(gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/status" --jq ' .statuses[] | select(.context == "Vercel") | .state')
+            case "$state" in
+              success) echo "Vercel reported success for $GITHUB_SHA"; exit 0 ;;
+              failure|error) echo "Vercel reported $state for $GITHUB_SHA"; exit 1 ;;
+            esac
+            sleep 10
+          done
+          echo "Timed out waiting for Vercel on $GITHUB_SHA"
+          exit 1
+      - name: Compare live JavaScript with the commit
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/contents/js/budget.js?ref=$GITHUB_SHA" -H "Accept: application/vnd.github.raw+json" > expected.js
+          for attempt in {1..18}; do
+            if curl --fail --silent --show-error "https://geeker-lab8.vercel.app/js/budget.js?release=$GITHUB_SHA" -o live.js && cmp -s expected.js live.js; then
+              echo "Public budget.js matches the commit"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "Public JavaScript did not match the commit"
+          exit 1
