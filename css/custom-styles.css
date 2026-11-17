@@ -636,3 +636,15 @@ html { scroll-padding-top: 6.4rem; }
   }
   @keyframes lab7-refresh { to { transform: rotate(360deg); } }
 }
+
+/* Lab 11: responsive estimate widget */
+#budget .budget-card{display:grid;gap:1rem;padding:clamp(1.25rem,4vw,2rem);border:1px solid #654a89;border-radius:1.25rem;background:radial-gradient(ellipse at 95% 0%,#483064,transparent 58%),#211936;box-shadow:0 18px 50px #09061555}
+#budget .budget-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:1rem}
+#budget .budget-field{display:grid;gap:.45rem;color:#f8f2ff;font-weight:650}
+#budget .budget-field input,#budget .budget-field select{min-height:3rem;padding:.65rem .8rem;border:1px solid #69548d;border-radius:.7rem;background:#19142b;color:#fff9ff;font:inherit}
+#budget :is(input,select):focus-visible{outline:3px solid #fbbf24;outline-offset:3px}
+#budget .budget-snacks{display:flex;align-items:center;gap:.7rem;min-height:3rem;color:#f8f2ff}
+#budget .budget-snacks input{width:1.2rem;height:1.2rem;accent-color:#a78bfa}
+#budget .budget-result{display:block;margin-top:.2rem;padding:1.2rem;border:1px solid #655481;border-radius:1rem;background:#19142b;color:#fff8ff;font:800 clamp(2rem,6vw,3.5rem)/1.15 var(--font-heading)}
+#budget .budget-error{min-height:1.5em;margin:0;color:#fecaca}
+#budget [aria-invalid="true"]{border-color:#f87171}
