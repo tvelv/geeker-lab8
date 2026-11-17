@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+<title id="title">Авторська векторна ілюстрація для гри «Крила»</title>
+<desc id="desc">Птах із золотим крилом сидить на гілці серед листя над спокійним пагорбистим краєвидом.</desc>
+<defs>
+  <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#d9e6df"/><stop offset="1" stop-color="#f2ead9"/></linearGradient>
+  <linearGradient id="feather" x2="1" y2="1"><stop stop-color="#f3c36e"/><stop offset="1" stop-color="#d89043"/></linearGradient>
+  <linearGradient id="hill" x2="1" y2="1"><stop stop-color="#71978b"/><stop offset="1" stop-color="#496f69"/></linearGradient>
+  <pattern id="grain" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="4" cy="6" r="1" fill="#fff" opacity=".25"/><circle cx="23" cy="21" r="1.2" fill="#fff" opacity=".2"/></pattern>
+</defs>
+<rect width="640" height="480" rx="30" fill="url(#sky)"/>
+<circle cx="494" cy="115" r="58" fill="#f1c77e" opacity=".83"/>
+<path d="M0 310 Q115 220 245 294T492 274 640 260V480H0Z" fill="#a6b8a0"/>
+<path d="M0 363Q140 290 286 352t354-48v176H0Z" fill="url(#hill)"/>
+<path d="M0 419Q164 350 318 408t322-34v106H0Z" fill="#35595a"/>
+<rect width="640" height="480" rx="30" fill="url(#grain)"/>
+<g fill="none" stroke="#35595a" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M50 374Q198 339 351 378t237 8" stroke-width="17"/>
+  <path d="M132 365q-7-86-49-119m53 117q34-76 89-94m120 112q-3-89 48-135m-42 135q42-62 104-68" stroke-width="8"/>
+</g>
+<g fill="#789a72">
+  <path d="M83 249q-39-5-47-39 37-3 55 23-2-39 23-57 17 33-9 61 37-16 61 1-25 30-72 18-24 9-44 1Z"/>
+  <path d="M237 275q-39-9-42-43 38 2 53 29 4-39 32-52 13 35-17 59 39-12 60 8-29 27-74 9-25 7-43-5Z"/>
+  <path d="M452 243q-37-15-31-49 37 8 48 38 10-38 39-46 8 37-25 55 40-6 58 17-32 22-74-6-25 3-42-9Z"/>
+</g>
+<g stroke="#203b48" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M226 280q-5-32 17-57 30-34 81-24 40 8 58 42 7 13 6 28l-28 11q-33-22-79-14-29 5-55 14Z" fill="#405f63" stroke-width="6"/>
+  <path d="M274 257q22-39 57-39 28 1 42 29-25 26-68 29-18 1-31-19Z" fill="url(#feather)" stroke-width="5"/>
+  <path d="M366 220q17-27 42-23 24 5 29 31l-24 21q-26-4-47-29Z" fill="#405f63" stroke-width="6"/>
+  <path d="M432 225l35 10-31 13" fill="#d89043" stroke-width="5"/>
+  <circle cx="414" cy="218" r="4.5" fill="#f8f2df" stroke="none"/>
+  <circle cx="415" cy="218" r="2" fill="#203b48" stroke="none"/>
+  <path d="M274 294l-8 30m35-34 3 34m-40 1h-19m61 0h-18" fill="none" stroke-width="6"/>
+  <path d="M218 274l-35 19m43-11-30 27" fill="none" stroke-width="5"/>
+</g>
+<g fill="#f8f2df" opacity=".8"><circle cx="133" cy="125" r="4"/><circle cx="172" cy="101" r="3"/><circle cx="291" cy="147" r="4"/><circle cx="353" cy="116" r="3"/></g>
+</svg>
