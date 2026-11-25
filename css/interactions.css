@@ -60,3 +60,33 @@
     box-shadow: inset 0 0 0 1px var(--interaction-ring);
   }
 }
+
+/* Rounded feedback for expandable content. */
+main summary {
+  padding-inline: .65rem;
+  border-radius: .6rem;
+}
+
+:root[data-theme] main summary:focus-visible,
+:root:not([data-theme]) main summary:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: none;
+  background-color: var(--interaction-fill);
+  text-decoration: underline;
+  text-decoration-thickness: .12em;
+  text-underline-offset: .23em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :root main summary:not([aria-disabled="true"]):hover {
+    box-shadow: none;
+    background-color: var(--interaction-fill);
+  }
+}
+
+@media (forced-colors: active) {
+  main summary:focus-visible {
+    outline-color: Highlight;
+  }
+}
