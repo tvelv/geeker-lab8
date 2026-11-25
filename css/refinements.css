@@ -88,15 +88,15 @@ main :is(.faq, #faq, .sessions-faq) summary { min-block-size: 44px; align-conten
 .geeker-landing [aria-labelledby="hero-title"] { border-bottom: 0; }
 :root:not([data-theme="light"]) .geeker-landing .geeker-hero-art {
   animation: none;
-  filter: none;
-  object-position: 78% center;
+  filter: brightness(1.12) saturate(1.04);
+  object-position: 70% center;
 }
 :root:not([data-theme="light"]) .geeker-landing .geeker-hero-veil {
-  background-image: linear-gradient(90deg, #101023f5, #101023ad 48%, #10102324);
+  background-image: linear-gradient(90deg, #0f0e20fa, #0f0e2099 45%, #0f0e200d);
 }
 @media (max-width: 47.99rem) {
   :root:not([data-theme="light"]) .geeker-landing .geeker-hero-veil {
-    background-image: linear-gradient(90deg, #101023ed, #101023bd 59%, #10102379),
+    background-image: linear-gradient(90deg, #0f0e20fa, #0f0e20c4 53%, #0f0e2059),
       linear-gradient(0deg, #101023, transparent 43%);
   }
 }
