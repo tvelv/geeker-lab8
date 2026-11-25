@@ -1,14 +1,16 @@
-/* Feedback without reflow. Hover effects run only on devices with a mouse. */
+/* Use color and motion for hover. Reserve outlines for keyboard focus. */
 :root {
-  --interaction-ring: #ad8be7;
-  --interaction-fill: rgb(173 139 231 / .13);
-  --interaction-glow: rgb(173 139 231 / .15);
+  --interaction-accent: #c5acef;
+  --interaction-fill: rgb(173 139 231 / .15);
+  --interaction-brightness: 1.13;
+  --interaction-shadow: 0 12px 26px rgb(6 4 18 / .14);
 }
 
 :root[data-theme="light"] {
-  --interaction-ring: #7954aa;
-  --interaction-fill: rgb(121 84 170 / .10);
-  --interaction-glow: rgb(121 84 170 / .12);
+  --interaction-accent: #683e9f;
+  --interaction-fill: rgb(121 84 170 / .11);
+  --interaction-brightness: .94;
+  --interaction-shadow: 0 12px 26px rgb(65 31 100 / .10);
 }
 
 :is(a[href], button, summary, select, input:is([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"]), [role="button"], [role="tab"]):not(:disabled, [aria-disabled="true"]) {
@@ -16,7 +18,7 @@
 }
 
 :where(a[href], button, summary, input, select, textarea, [role="button"], [role="tab"]):focus-visible {
-  outline: 2px solid var(--interaction-ring);
+  outline: 2px solid var(--interaction-accent);
   outline-offset: 3px;
 }
 
@@ -24,44 +26,6 @@
   filter: brightness(.91);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  a[href]:not([aria-disabled="true"]):hover {
-    text-decoration-thickness: max(1px, .1em);
-    text-underline-offset: .24em;
-    filter: brightness(1.10);
-  }
-
-  :is(button, summary, [role="button"], [role="tab"]):not(:disabled, [aria-disabled="true"]):hover {
-    box-shadow: inset 0 0 0 1px var(--interaction-ring), 0 2px 12px var(--interaction-glow);
-  }
-
-  main :is(p, li, h1, h2, h3, h4, figcaption):hover {
-    text-shadow: 0 0 .6rem var(--interaction-glow);
-  }
-
-  :is(input, select, textarea):not(:disabled, [aria-disabled="true"]):hover {
-    box-shadow: 0 0 0 2px var(--interaction-fill);
-  }
-
-  main :is(.card, .club-session, .about-intro, .about-first li, .about-promo, .budget-card, .feedback-panel, .weather-card, .geeker-gallery__slide, .geeker-video-card, .sessions-how):is(:hover, :focus-within) {
-    outline: 1px solid var(--interaction-ring);
-    outline-offset: 2px;
-  }
-
-  main :is(.faq, #faq, .sessions-faq) details:hover {
-    background-color: color-mix(in srgb, var(--color-surface), var(--interaction-ring) 10%);
-  }
-
-  :is(.lab7-brand img, main img:not(.geeker-hero-art, .geeker-hero-light-art), .about-promo video):hover {
-    filter: brightness(1.08) saturate(1.05);
-  }
-
-  main :is(.tag, .meta span, .weather-metrics > div, .weather-forecast li, .budget-result):hover {
-    box-shadow: inset 0 0 0 1px var(--interaction-ring);
-  }
-}
-
-/* Rounded feedback for expandable content. */
 main summary {
   padding-inline: .65rem;
   border-radius: .6rem;
@@ -71,7 +35,6 @@ main summary {
 :root:not([data-theme]) main summary:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  box-shadow: none;
   background-color: var(--interaction-fill);
   text-decoration: underline;
   text-decoration-thickness: .12em;
@@ -79,14 +42,70 @@ main summary {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :root main summary:not([aria-disabled="true"]):hover {
-    box-shadow: none;
+  a[href]:not([aria-disabled="true"]):hover {
+    text-decoration-thickness: max(1px, .1em);
+    text-underline-offset: .24em;
+    filter: brightness(var(--interaction-brightness));
+  }
+
+  :is(.text-link, .hero-budget-link, .sessions-return, .about-links a, .about-path a, .breadcrumb a):hover {
+    color: var(--interaction-accent);
+  }
+
+  :is(button, [role="button"], [role="tab"]):not(:disabled, [aria-disabled="true"]):hover {
+    filter: brightness(var(--interaction-brightness));
+  }
+
+  :is(main summary, .lab7-menu summary):hover {
     background-color: var(--interaction-fill);
+  }
+
+  :is(input, select, textarea):not(:disabled, [aria-disabled="true"]):hover {
+    filter: brightness(var(--interaction-brightness));
+  }
+
+  main :is(.card, .club-session, .about-intro, .about-first li, .about-promo, .budget-card, .feedback-panel, .weather-card, .geeker-gallery__slide, .geeker-video-card, .sessions-how):hover {
+    box-shadow: var(--interaction-shadow);
+  }
+
+  main :is(.faq, #faq, .sessions-faq) details:hover {
+    background-color: color-mix(in srgb, var(--color-surface) 92%, var(--interaction-accent));
+  }
+
+  :is(.lab7-brand img, main img:not(.geeker-hero-art, .geeker-hero-light-art), .about-promo video):hover {
+    filter: brightness(1.07) saturate(1.05);
+  }
+
+  main :is(.tag, .meta span, .weather-metrics > div, .weather-forecast li, .budget-result):hover {
+    filter: brightness(var(--interaction-brightness));
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  :is(.lab7-brand img, .game-card-actions svg, .geeker-theme-toggle svg, .lab7-menu summary svg, .club-session-art img, .geeker-video-card__thumb img) {
+    transition: translate .19s ease, filter .19s ease;
+  }
+
+  :is(.lab7-brand:hover img, .geeker-theme-toggle:hover svg, .lab7-menu summary:hover svg, .club-session-art:hover img, .geeker-video-card__thumb:hover img) {
+    translate: 0 -3px;
+  }
+
+  .game-card-actions :is(button, a):hover svg {
+    translate: 3px 0;
+  }
+
+  main :is(.card:not(.is-interactive), .about-first li):not(.club-session) {
+    transition: translate .2s ease, box-shadow .2s ease;
+  }
+
+  main :is(.card:not(.is-interactive), .about-first li):not(.club-session):hover {
+    translate: 0 -3px;
   }
 }
 
 @media (forced-colors: active) {
-  main summary:focus-visible {
+  :root[data-theme] main summary:focus-visible,
+  :root:not([data-theme]) main summary:focus-visible {
     outline-color: Highlight;
   }
 }
