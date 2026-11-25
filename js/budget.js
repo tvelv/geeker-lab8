@@ -10,7 +10,7 @@
   const total = widget.querySelector('#budget-total');
   if (!guests || !hours || !game || !snacks || !message || !total) return;
 
-  const fees = new Map([['0', 0], ['150', 150], ['250', 250]]);
+  const fees = new Map([['0', 0], ['20', 20], ['35', 35]]);
   const money = new Intl.NumberFormat('uk-UA');
 
   function hasValidCount(field, max) {
@@ -43,8 +43,8 @@
       return;
     }
 
-    const base = guests.valueAsNumber * hours.valueAsNumber * 100;
-    const amount = base + fee + (snacks.checked ? 200 : 0);
+    const base = guests.valueAsNumber * hours.valueAsNumber * 15;
+    const amount = base + fee + (snacks.checked ? 30 : 0);
     const valid = Number.isSafeInteger(amount) && amount >= 0;
     message.textContent = valid ? '' : 'Не вдалося розрахувати суму.';
     total.textContent = valid ? money.format(amount) + ' грн' : '—';
