@@ -309,18 +309,19 @@
 .session-card-action { display:inline-flex;align-items:center;min-height:48px;margin-top:1rem;color:var(--color-heading);font-weight:700;text-decoration:underline;text-underline-offset:.3em; }
 @media(max-width:30rem) { .hero-budget-link { margin-left:0; } }
 .geeker-hero-line {
-  min-height: 3.1em;
-  max-width: 34ch;
+  min-block-size: 2.48em;
   margin: 0 0 .6rem;
-  font-size: 1.05rem;
-  line-height: 1.5;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: clamp(1.375rem, 1.125rem + 1.55vw, 2rem);
+  line-height: 1.24;
+  font-weight: 700;
+  letter-spacing: -.015em;
   color: #d9c6ff;
 }
 .geeker-hero-line .typed-cursor {
   display: inline-block;
   margin-left: .1em;
-  color: #c4a6ff;
+  color: currentColor;
   animation: geeker-cursor 1.1s step-end infinite;
 }
 @keyframes geeker-cursor { 50% { opacity: 0; } }
