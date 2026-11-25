@@ -34,9 +34,6 @@
   content: ""; width: .62rem; height: .62rem; border-radius: 50%; border: 1px solid #cda8ff;
 }
 .geeker-gallery__pagination .swiper-pagination-bullet-active::before { background: #cda8ff; }
-.geeker-hero-line { display: grid; margin-bottom: .65rem; color: #e5caff; font-weight: 700; }
-.geeker-hero-line > [aria-hidden="true"] { grid-area: 1 / 1; }
-.geeker-hero-line::before { content: "Зберіть друзів за грою."; grid-area: 1 / 1; visibility: hidden; }
 @media (prefers-reduced-motion: reduce) { .geeker-gallery__cover img { transition: none; } }
 .geeker-hero-line > .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
