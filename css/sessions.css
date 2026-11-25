@@ -35,3 +35,4 @@
 .sessions-faq details p{margin-top:.75rem;line-height:1.7}.sessions-return{display:inline-flex;align-items:center;min-height:48px;margin-top:1.5rem}
 @media(min-width:48rem){.sessions-intro{grid-template-columns:1.25fr 1fr}.sessions-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.sessions-how{grid-template-columns:1fr 1.4fr;padding:2.4rem}}
 @media(prefers-reduced-motion:reduce){.club-session,.sessions-button{transition:none}.club-session:hover,.sessions-button:hover{transform:none}}
+.club-sessions .sessions-breadcrumb [aria-current="page"]{color:var(--color-heading)}
