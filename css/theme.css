@@ -328,3 +328,42 @@
 @media (prefers-reduced-motion: reduce) {
   .geeker-hero-line .typed-cursor { animation: none; }
 }
+
+:root[data-theme="light"] #budget .budget-card {
+  background: radial-gradient(ellipse at top right, #eee4f9, transparent 68%), var(--color-surface);
+  border-color: var(--color-line);
+  box-shadow: var(--theme-shadow);
+}
+
+:root[data-theme="light"] #budget :is(.budget-field, .budget-snacks) {
+  color: var(--color-heading);
+}
+
+:root[data-theme="light"] #budget .budget-field :is(input, select) {
+  background: var(--color-surface);
+  border-color: var(--theme-field-border);
+  color: var(--color-heading);
+}
+
+:root[data-theme="light"] #budget :is(input, select):focus-visible {
+  outline-color: var(--color-focus);
+}
+
+:root[data-theme="light"] #budget .budget-snacks input {
+  accent-color: var(--color-primary);
+}
+
+:root[data-theme="light"] #budget .budget-result {
+  background: #f0e7fa;
+  border-color: var(--color-line);
+  color: var(--theme-link);
+}
+
+:root[data-theme="light"] #budget .budget-error {
+  color: var(--theme-error);
+}
+
+:root[data-theme="light"] #budget .budget-field [aria-invalid="true"] {
+  border-color: var(--theme-error);
+  box-shadow: 0 0 0 1px var(--theme-error);
+}
