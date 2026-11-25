@@ -144,9 +144,45 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const typedLine = document.querySelector('[data-hero-typed]');
-  if (!reducedMotion.matches && typeof Typed === 'function') {
-    const text = typedLine.textContent;
-    typedLine.textContent = '';
-    new Typed(typedLine, { strings: [text], typeSpeed: 34, startDelay: 300, loop: false, showCursor: false });
+  if (!typedLine || typeof Typed !== 'function') return;
+  const initialText = typedLine.textContent;
+  const hero = typedLine.closest('section');
+  let typing;
+
+  function syncTyping() {
+    if (reducedMotion.matches) {
+      typing?.destroy();
+      typing = undefined;
+      typedLine.textContent = initialText;
+      return;
+    }
+    if (!typing) {
+      typedLine.textContent = '';
+      typing = new Typed(typedLine, {
+        strings: [
+          'Збирайте друзів за грою.',
+          'Знаходьте компанію за спільним столом.',
+          'Відкривайте нові настільні світи.',
+          'Будуйте стратегії. Створюйте спогади.',
+        ],
+        typeSpeed: 40,
+        backSpeed: 22,
+        backDelay: 2300,
+        startDelay: 450,
+        loop: true,
+        smartBackspace: true,
+        showCursor: true,
+        cursorChar: '▏',
+        autoInsertCss: false,
+      });
+    }
+    if (hero.classList.contains('hero-motion-paused')) typing.stop();
+    else typing.start();
   }
+
+  syncTyping();
+  reducedMotion.addEventListener('change', syncTyping);
+  hero.querySelector('.hero-motion-toggle')?.addEventListener('click', () => {
+    requestAnimationFrame(syncTyping);
+  });
 });
