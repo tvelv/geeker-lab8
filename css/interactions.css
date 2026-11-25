@@ -1,0 +1,62 @@
+/* Feedback without reflow. Hover effects run only on devices with a mouse. */
+:root {
+  --interaction-ring: #ad8be7;
+  --interaction-fill: rgb(173 139 231 / .13);
+  --interaction-glow: rgb(173 139 231 / .15);
+}
+
+:root[data-theme="light"] {
+  --interaction-ring: #7954aa;
+  --interaction-fill: rgb(121 84 170 / .10);
+  --interaction-glow: rgb(121 84 170 / .12);
+}
+
+:is(a[href], button, summary, select, input:is([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"]), [role="button"], [role="tab"]):not(:disabled, [aria-disabled="true"]) {
+  cursor: pointer;
+}
+
+:where(a[href], button, summary, input, select, textarea, [role="button"], [role="tab"]):focus-visible {
+  outline: 2px solid var(--interaction-ring);
+  outline-offset: 3px;
+}
+
+:is(a[href], button, summary, [role="button"], [role="tab"]):not(:disabled, [aria-disabled="true"]):active {
+  filter: brightness(.91);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a[href]:not([aria-disabled="true"]):hover {
+    text-decoration-thickness: max(1px, .1em);
+    text-underline-offset: .24em;
+    filter: brightness(1.10);
+  }
+
+  :is(button, summary, [role="button"], [role="tab"]):not(:disabled, [aria-disabled="true"]):hover {
+    box-shadow: inset 0 0 0 1px var(--interaction-ring), 0 2px 12px var(--interaction-glow);
+  }
+
+  main :is(p, li, h1, h2, h3, h4, figcaption):hover {
+    text-shadow: 0 0 .6rem var(--interaction-glow);
+  }
+
+  :is(input, select, textarea):not(:disabled, [aria-disabled="true"]):hover {
+    box-shadow: 0 0 0 2px var(--interaction-fill);
+  }
+
+  main :is(.card, .club-session, .about-intro, .about-first li, .about-promo, .budget-card, .feedback-panel, .weather-card, .geeker-gallery__slide, .geeker-video-card, .sessions-how):is(:hover, :focus-within) {
+    outline: 1px solid var(--interaction-ring);
+    outline-offset: 2px;
+  }
+
+  main :is(.faq, #faq, .sessions-faq) details:hover {
+    background-color: color-mix(in srgb, var(--color-surface), var(--interaction-ring) 10%);
+  }
+
+  :is(.lab7-brand img, main img:not(.geeker-hero-art, .geeker-hero-light-art), .about-promo video):hover {
+    filter: brightness(1.08) saturate(1.05);
+  }
+
+  main :is(.tag, .meta span, .weather-metrics > div, .weather-forecast li, .budget-result):hover {
+    box-shadow: inset 0 0 0 1px var(--interaction-ring);
+  }
+}
